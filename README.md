@@ -98,11 +98,11 @@ Slideshow built with RevealJS for the AngularJS Amsterdam Conference
   - Useful Modules
     - ngResource
       - What is it?
-      - $resource service usage
+      - $resource service
       - Code sample
     - ngRoute
       - What is it?
-      - $routeProvider usage
+      - $routeProvider
       - $routeParams
       - Code sample
     - ngCookie
