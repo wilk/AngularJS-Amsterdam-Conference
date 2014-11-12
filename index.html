@@ -108,26 +108,42 @@
 
                 <section>
                     <h3>Why we need DI into our application?</h3>
-                    <h3></h3>
-                    <p></p>
+                    <p>It's useful to have each component declaring its dependencies and then get them injected into it by Angular.</p>
+                    <p>It's possible to inject constants, values, functions and objects.</p>
                 </section>
 
                 <section>
-                    <h1>Best practices</h1>
-                    <h3></h3>
-                    <p></p>
+                    <h3>Best practices</h3>
+                    <p>Controllers, services, directives, filters and animations can be injected with value and service components.</p>
+                    <p><em>angular.run</em> method can be injected with service, value and constant components.</p>
+                    <p><em>angular.config</em> method can be injected with provider and constant.</p>
                 </section>
 
                 <section>
-                    <h1>Vendor/Personal dependencies</h1>
-                    <h3></h3>
-                    <p></p>
+                    <h3>Vendor/Personal dependencies</h3>
+                    <p>AngularJS lets you to inject various types of dependencies:</p>
+                    <ul>
+                        <li>Angular built-in dependencies</li>
+                        <li>Vendor dependencies</li>
+                        <li>Personal dependencies</li>
+                    </ul>
                 </section>
 
                 <section>
-                    <h1>Code sample</h1>
-                    <h3></h3>
-                    <p></p>
+                    <h3>Code sample</h3>
+                    <p>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.run(['$http', function ($http) {
+    // do something with $http service
+}]);
+angular.config(['$httpProvider', function ($httpProvider) {
+    // do something with $httpProvider provider
+}]);
+angular.controller('MyCtrl', ['$scope', function ($scope) {
+    // do something with $scope service
+}]);
+                        </code></pre>
+                    </p>
                 </section>
             </section>
 
