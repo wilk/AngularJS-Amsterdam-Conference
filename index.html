@@ -213,57 +213,101 @@ angular.controller('MyCtrl', ['$scope', function ($scope) {
                 </section>
 
                 <section>
-                    <h1>What is a directive?</h1>
-                    <h3></h3>
-                    <p></p>
+                    <h3>What is a directive?</h3>
+                    <p>
+                        Directives are markers on a DOM element (such as an attribute, element name, comment or CSS class) that tell AngularJS's HTML compiler ($compile) to attach a specified behavior to that DOM element or even transform the DOM element and its children.
+                    </p>
                 </section>
 
                 <section>
-                    <h1>Built-in directives</h1>
-                    <h3></h3>
-                    <p></p>
+                    <h3>Built-in directives</h3>
+                    <p>Angular comes with several built-in directives:</p>
+                    <ul>
+                        <li>ngApp</li>
+                        <li>ngController</li>
+                        <li>ngModel</li>
+                        <li>ngRepeat</li>
+                        <li>ngClick</li>
+                        <li>ngView</li>
+                    </ul>
+                    <p>Built-in directives are identified by the <strong>ng</strong> namespace.</p>
                 </section>
 
                 <section>
-                    <h1>Build your custom directives</h1>
-                    <h3></h3>
-                    <p></p>
+                    <h3>Build your custom directives</h3>
+                    <p>
+                        One of the most powerful feature in AngularJS is the possibility to make custom directives.
+                        Like other Angular components, a custom directive is just a module.
+                    </p>
                 </section>
 
                 <section>
-                    <h1>Configuration</h1>
-                    <h3></h3>
-                    <p></p>
+                    <h3>Configuration</h3>
+                    <p>A directive must return a configuration object with the following options:</p>
+                    <ul>
+                        <li>priority</li>
+                        <li>require</li>
+                        <li>restrict</li>
+                        <li>transclude</li>
+                        <li>scope</li>
+                        <li>controller</li>
+                        <li>controllerAs</li>
+                        <li>link</li>
+                        <li>templateNamespace</li>
+                        <li>templateUrl</li>
+                        <li>template</li>
+                    </ul>
                 </section>
 
                 <section>
-                    <h1>Compile and link function</h1>
-                    <h3></h3>
-                    <p></p>
+                    <h3>The link function</h3>
+                    <p>The link function is responsible for registering DOM listeners as well as updating the DOM. It is executed after the template has been cloned.</p>
+                    <p>It comes with the following signature:</p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+function link(scope, iElement, iAttrs, controller, transcludeFn) { ... }
+                    </code></pre>
                 </section>
 
                 <section>
-                    <h1>Inner/outer scope</h1>
-                    <h3></h3>
-                    <p></p>
+                    <h3>Scope in directives</h3>
+                    <p>
+                        If set to true, then a new scope will be created for this directive. If multiple directives on the same element request a new scope, only one new scope is created. The new scope rule does not apply for the root of the template since the root of the template always gets a new scope.
+                    </p>
+                    <p>
+                        If set to {} (object hash), then a new "isolate" scope is created. The 'isolate' scope differs from normal scope in that it does not prototypically inherit from the parent scope. This is useful when creating reusable components, which should not accidentally read or modify data in the parent scope.
+                    </p>
                 </section>
 
                 <section>
-                    <h1>Controller integration</h1>
-                    <h3></h3>
-                    <p></p>
+                    <h3>Controller integration</h3>
+                    <p>A directive can have its own custom controller (like the scope) and it's possible to share the logic between other directives.</p>
+                    <p>A controller is injectable with the following locals:</p>
+                    <ul>
+                        <li>$scope</li>
+                        <li>$element</li>
+                        <li>$attrs</li>
+                        <li>$transclude</li>
+                    </ul>
                 </section>
 
                 <section>
-                    <h1>Transclusion</h1>
-                    <h3></h3>
-                    <p></p>
+                    <h3>Transclusion</h3>
+                    <p>
+                        Transclusion is the process of extracting a collection of DOM element from one part of the DOM and copying them to another part of the DOM, while maintaining their connection to the original AngularJS scope from where they were taken.
+                    </p>
+                    <p>
+                        Transclusion is used (often with ngTransclude) to insert the original contents of a directive's element into a specified place in the template of the directive. The benefit of transclusion, over simply moving the DOM elements manually, is that the transcluded content has access to the properties on the scope from which it was taken, even if the directive has isolated scope.
+                    </p>
+                    <p>
+                        This makes it possible for the widget to have private state for its template, while the transcluded content has access to its originating scope.
+                    </p>
                 </section>
 
                 <section>
-                    <h1>Code sample</h1>
-                    <h3></h3>
-                    <p></p>
+                    <h3>Code sample</h3>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+                        
+                    </code></pre>
                 </section>
             </section>
 
