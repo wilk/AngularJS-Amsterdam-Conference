@@ -306,7 +306,7 @@ function link(scope, iElement, iAttrs, controller, transcludeFn) { ... }
                 <section>
                     <h3>Code sample</h3>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-                        
+                        // TODO: make an example of a custom directive
                     </code></pre>
                 </section>
             </section>
@@ -314,44 +314,74 @@ function link(scope, iElement, iAttrs, controller, transcludeFn) { ... }
             <section>
                 <section>
                     <h1>Filters</h1>
-                    <h3></h3>
-                    <p></p>
                 </section>
 
                 <section>
-                    <h1>What is a filter?</h1>
-                    <h3></h3>
-                    <p></p>
+                    <h3>What is a filter?</h3>
+                    <p>
+                        A filter formats the value of an expression for display to the user. They can be used in view templates, controllers or services and it is easy to define your own filter.
+                    </p>
                 </section>
 
                 <section>
-                    <h1>Built-in filters</h1>
-                    <h3></h3>
-                    <p></p>
+                    <h3>Built-in filters</h3>
+                    <p>AngularJS has several built-in filters:</p>
+                    <ul>
+                        <li>currency</li>
+                        <li>date</li>
+                        <li>json</li>
+                        <li>limitTo</li>
+                        <li>lowercase</li>
+                        <li>uppercase</li>
+                        <li>number</li>
+                        <li>orderBy</li>
+                    </ul>
                 </section>
 
                 <section>
-                    <h1>Filters within templates</h1>
-                    <h3></h3>
-                    <p></p>
+                    <h3>Filters within templates</h3>
+                    <p>Filters can be applied to expressions in view templates using the following syntax:</p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+{{ expression | filter }}
+                    </code></pre>
+                    <p>It's possible to chain more filters:</p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+{{ expression | filter1 | filter2 | ... }}
+                    </code></pre>
+                    <p>Filters may have arguments:</p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+{{ expression | filter:argument1:argument2:... }}
+                    </code></pre>
                 </section>
 
                 <section>
-                    <h1>Filters within controllers</h1>
-                    <h3></h3>
-                    <p></p>
+                    <h3>Filters within the application</h3>
+                    <p>Inject a dependency with the name &lt;filterName&gt;Filter to your controller/service/directive:</p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.controller('MyCtrl', ['dateFilter', function(dateFilter) {
+    var date = dateFilter(new Date(), 'Ymd');
+}]);
+                    </code></pre>
                 </section>
 
                 <section>
-                    <h1>Define your custom filters</h1>
-                    <h3></h3>
-                    <p></p>
+                    <h3>Define your custom filters</h3>
+                    <p>
+                        Writing your own filter is very easy: just register a new filter factory function with your module.
+                        This factory function should return a new filter function which takes the input value as the first argument. Any filter arguments are passed in as additional arguments to the filter function.
+                    </p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.filter('MyFilter', function(dateFilter) {
+    return function (value, secondArg) {
+        return '*** ' + secondArg + value + secondArg + ' ***';
+    };
+});
+                    </code></pre>
                 </section>
 
                 <section>
-                    <h1>Code sample</h1>
-                    <h3></h3>
-                    <p></p>
+                    <h3>Code sample</h3>
+                    <p>TODO: example of a custom filter used in a controller or template</p>
                 </section>
             </section>
 
