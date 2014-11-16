@@ -469,27 +469,44 @@ angular.service('Mario', ['$http', function ($http) {
                 </section>
 
                 <section>
-                    <h1>Angular form</h1>
-                    <h3></h3>
-                    <p></p>
+                    <h3>Angular form</h3>
+                    <p>Form is simply a group of controls.</p>
+                    <p>Angular form creates an instance of FormController. FormController itself has methods and properties:</p>
+                    <ul>
+                        <li>formName.$pristine: TRUE if the user has not interacted with the form yet</li>
+                        <li>formName.$dirty: TRUE if the user has already interacted with the form.</li>
+                        <li>formName.$valid: TRUE if all containing form and controls are valid</li>
+                        <li>formName.$invalid: TRUE if at least one containing form and control is invalid.</li>
+                        <li>formName.$error: Is an object hash, containing references to all invalid controls or forms</li>
+                    </ul>
                 </section>
 
                 <section>
-                    <h1>Form states</h1>
-                    <h3></h3>
-                    <p></p>
+                    <h3>Form states</h3>
+                    <p>
+                        It is important to understand flow of the form states in order to use angular form properly. This flow gives you visualization of the form state from the very first time the form is rendered until the user has finished filling the form
+                    </p>
+                    <ul>
+                        <li>Flow 1: pristine and invalid - When the form is first rendered and the user has not interacted with the form yet.</li>
+                        <li>Flow 2: dirty and invalid - User has interacted with the form, but validity has not been satisfied, yet</li>
+                        <li>Flow 3: dirty and valid - User has finished filling the form and all the validation rule has been satisfied</li>
+                    </ul>
                 </section>
 
                 <section>
-                    <h1>Data validation and data binding</h1>
-                    <h3></h3>
-                    <p></p>
+                    <h3>Data validation and data binding</h3>
+                    <p>
+                        Thanks to the ngModel is possible to combine the data-binding with the data validation.
+                        The ngModelController has several validation functions stored in the $validators object and Angular provides basic implementation for most common HTML5 input types: (text, number, url, email, radio, checkbox), as well as some directives for validation (required, pattern, minlength, maxlength, min, max).
+                    </p>
+                    <p>
+                        With directives it's possible to add new type of validators: each function in the $validators object receives the modelValue and the viewValue as parameters that Angular uses to validate the form.
+                    </p>
                 </section>
 
                 <section>
-                    <h1>Code sample</h1>
-                    <h3></h3>
-                    <p></p>
+                    <h3>Code sample</h3>
+                    <p>TODO: a form sample with a custom validation</p>
                 </section>
             </section>
 
