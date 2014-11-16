@@ -513,34 +513,42 @@ angular.service('Mario', ['$http', function ($http) {
             <section>
                 <section>
                     <h1>Modularity</h1>
-                    <h3></h3>
-                    <p></p>
                 </section>
 
                 <section>
-                    <h1>How to build a module</h1>
-                    <h3></h3>
-                    <p></p>
+                    <h3>How to build a module</h3>
+                    <p>Angular provides the angular.module function to register a new module.</p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.module('MyModule', []);
+                    </code></pre>
+                    <p>The empty array stands for the dependencies list.</p>
                 </section>
 
                 <section>
-                    <h1>Custom modules aka Dependencies</h1>
-                    <h3></h3>
-                    <p></p>
+                    <h3>Custom modules aka Dependencies</h3>
+                    <p>
+                        In Angular every module is a dependency that can be re-used in the application.
+                    </p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.module('MyModule.values', [])
+       .value('MyValue', 'a value');
+
+angular.module('MyApp', ['MyModule.values'])
+       .controller('MyCtrl', ['MyValue', function (MyValue) {
+            expect(MyValue).toBe('a value');
+        }]);
+                    </code></pre>
                 </section>
 
                 <section>
-                    <h1>Code sample</h1>
-                    <h3></h3>
-                    <p></p>
+                    <h3>Code sample</h3>
+                    <p>TODO: does it need a code sample?</p>
                 </section>
             </section>
 
             <section>
                 <section>
                     <h1>Routing</h1>
-                    <h3></h3>
-                    <p></p>
                 </section>
 
                 <section>
