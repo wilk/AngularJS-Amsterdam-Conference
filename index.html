@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="AmsterdamConf">
 
 	<head>
 		<meta charset="utf-8">
@@ -30,6 +30,9 @@
 				document.getElementsByTagName( 'head' )[0].appendChild( link );
 			}
 		</script>
+
+        <script src="lib/js/angular.js"></script>
+        <script src="js/app.js"></script>
 
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
@@ -85,7 +88,6 @@
                     <li>Modularity</li>
                     <li>Routing</li>
                     <li>Testing</li>
-                    <li>Core Tools</li>
                     <li>Useful Modules</li>
                     <li>Libraries</li>
                     <li>Ionic Framework</li>
@@ -198,12 +200,18 @@ angular.controller('MyCtrl', ['$scope', function ($scope) {
                         <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 &lt;html ng-app&gt;
     &lt;body ng-controller="MyCtrl"&gt;
-        <input ng-model="user" />
-        <button ng-click="submit()">{{btnText}}</button>
+        &lt;input ng-model="text" type="text" /&gt;
+        &lt;label&gt;[[text]]&lt;/label&gt;
+        &lt;button ng-click="templateSubmit()"&gt;{{btnText}}&lt;/button&gt;
     &lt;/body&gt;
 &lt;/html&gt;
                         </code></pre>
                     </p>
+                    <div ng-controller="TemplateCtrl">
+                        <p><input ng-model="text" type="text"/></p>
+                        <p><small>{{text}}</small></p>
+                        <button ng-click="templateSubmit()">Submit</button>
+                    </div>
                 </section>
             </section>
 
@@ -221,7 +229,7 @@ angular.controller('MyCtrl', ['$scope', function ($scope) {
 
                 <section>
                     <h3>Built-in directives</h3>
-                    <p>Angular comes with several built-in directives:</p>
+                    <p>Angular comes with several useful built-in directives, such as:</p>
                     <ul>
                         <li>ngApp</li>
                         <li>ngController</li>
@@ -231,6 +239,107 @@ angular.controller('MyCtrl', ['$scope', function ($scope) {
                         <li>ngView</li>
                     </ul>
                     <p>Built-in directives are identified by the <strong>ng</strong> namespace.</p>
+                </section>
+
+                <section>
+                    <h3>Built-in directives in detail - 1</h3>
+                    <p><strong>ngApp</strong></p>
+                    <p><small>The ngApp directive designates the root element of the application and is typically placed near the root element of the page. It auto-bootstraps the Angular application.</small></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+&lt;!doctype html&gt;
+&lt;html ng-app="MyApp"&gt;
+    &lt;head&gt;
+        ...
+    &lt;/head&gt;
+&lt;/html&gt;
+                    </code></pre>
+                    <p><strong>ngController</strong></p>
+                    <p><small>The ngController directive attaches a controller class to the view by creating a new scope.</small></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+&lt;div ng-controller="MyController"&gt;
+    Controller scope: [[something]]
+&lt;/div&gt;
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Built-in directives in detail - 2</h3>
+                    <p><strong>ngCloack</strong></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+&lt;div ng-cloack&gt;Hello World&lt;/div&gt;
+                    </code></pre>
+                    <p><strong>ngHide | ngShow</strong></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+&lt;div ng-hide="value"&gt;I'm hidden if value is truthy, visible otherwise&lt;/div&gt;
+&lt;div ng-show="value"&gt;I'm visible if value is truthy, hidden otherwise&lt;/div&gt;
+                    </code></pre>
+                    <p><strong>ngHref | ngSrc</strong></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+&lt;a ng-href="http://www.gravatar.com/avatar/[[hash]]"&gt;link&lt;/a&gt;
+&lt;img ng-src="http://www.gravatar.com/avatar/[[hash]]"/&gt;
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Built-in directives in detail - 3</h3>
+                    <p><strong>ngClick | ngDblclick | ngInit</strong></p>
+                    <p><small>ngClick and ngDblclick attach a listener on click and dblclick event of the element, while ngInit is used to initialize a variable in the current scope.</small></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+&lt;button ng-click="singleCount = singleCount + 1" ng-init="10"&gt;Click me&lt;button&gt;
+&lt;button ng-dblclick="count = count + 1" ng-init="count = 0"&gt;Double click me&lt;button&gt;
+                    </code></pre>
+
+                    <div>
+                        <button style="width: 110px;" ng-click="singleCount = singleCount + 1" ng-init="singleCount = 10">Click me</button>
+                        <small style="margin: 16px 0 0 10px; width: 50px;">{{singleCount}}</small>
+                    </div>
+                    <div>
+                        <button style="width: 110px;" ng-dblclick="count = count + 1" ng-init="count = 0">Double click me</button>
+                        <small style="margin: 16px 0 0 10px; width: 50px;">{{count}}</small>
+                    </div>
+
+
+                    <p><strong>ngIf | ngInclude | ngSwitch</strong></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+
+                    </code></pre>
+                    <p><strong>ngModel</strong></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+
+                    </code></pre>
+                    <p><strong>ngOptions</strong></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Built-in directives in detail - 4</h3>
+                    <p><strong>ngIf | ngSwitch</strong></p>
+                    <p><small>Some directives change the DOM structure based on a scope expression. ngIf removes or recreates a part of the DOM depending on the evaluation of the expression,
+                    while the ngSwitch conditionally swap the DOM structure.</small></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+&lt;input ng-model="value"/&gt;
+&lt;small ng-if="value > 0"&gt;Positive&lt;/small&gt;
+                    </code></pre>
+                    <div>
+                        <input style="width: 110px;" type="text" ng-model="value"/>
+                        <small style="margin: 16px 0 0 10px; width: 50px;" ng-if="value > 0">Positive</small>
+                    </div>
+                    <div>
+                        <input style="width: 110px;" type="text" ng-model="value"/>
+                        <small style="margin: 16px 0 0 10px; width: 50px;" ng-if="value > 0">Positive</small>
+                    </div>
+
+
+                    <p><strong>ngModel</strong></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+
+                    </code></pre>
+                    <p><strong>ngOptions</strong></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+
+                    </code></pre>
                 </section>
 
                 <section>
@@ -342,15 +451,15 @@ function link(scope, iElement, iAttrs, controller, transcludeFn) { ... }
                     <h3>Filters within templates</h3>
                     <p>Filters can be applied to expressions in view templates using the following syntax:</p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-{{ expression | filter }}
+[[ expression | filter ]]
                     </code></pre>
                     <p>It's possible to chain more filters:</p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-{{ expression | filter1 | filter2 | ... }}
+[[ expression | filter1 | filter2 | ... ]]
                     </code></pre>
                     <p>Filters may have arguments:</p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-{{ expression | filter:argument1:argument2:... }}
+[[ expression | filter:argument1:argument2:... ]]
                     </code></pre>
                 </section>
 
@@ -897,37 +1006,38 @@ angular.module('MyApp', ['MyModule.values'])
             <section>
                 <section>
                     <h1>Angular-UI</h1>
-                    <h3></h3>
+                </section>
+
+                <section>
+                    <h3>UI Utils</h3>
+                    <p>A utility package with no external dependencies: each module is contained in this package but can be included individually.</p>
+                    <p>Some common modules:</p>
+                    <ul>
+                        <li>Event Binder</li>
+                        <li>Keypress</li>
+                        <li>Mask</li>
+                        <li>Scrollfix</li>
+                        <li>Show / Hide / Toggle</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>UI Modules</h3>
                     <p></p>
                 </section>
 
                 <section>
-                    <h1>UI Utils</h1>
-                    <h3></h3>
+                    <h3>UI Bootstrap</h3>
                     <p></p>
                 </section>
 
                 <section>
-                    <h1>UI Modules</h1>
-                    <h3></h3>
+                    <h3>ngGrid</h3>
                     <p></p>
                 </section>
 
                 <section>
-                    <h1>UI Bootstrap</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>ngGrid</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>UI Router</h1>
-                    <h3></h3>
+                    <h3>UI Router</h3>
                     <p></p>
                 </section>
             </section>
@@ -935,8 +1045,6 @@ angular.module('MyApp', ['MyModule.values'])
             <section>
                 <section>
                     <h1>Restangular</h1>
-                    <h3></h3>
-                    <p></p>
                 </section>
 
                 <section>
@@ -961,8 +1069,6 @@ angular.module('MyApp', ['MyModule.values'])
             <section>
                 <section>
                     <h1>Ionic Framework</h1>
-                    <h3></h3>
-                    <p></p>
                 </section>
 
                 <section>
