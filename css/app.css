@@ -1,0 +1,4 @@
+.textInput.ng-invalid {
+    color: white;
+    background: red;
+}
