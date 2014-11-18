@@ -19,6 +19,7 @@
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
+        <link rel="stylesheet" href="css/app.css">
 
 		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
 		<script>
@@ -201,7 +202,7 @@ angular.controller('MyCtrl', ['$scope', function ($scope) {
 &lt;html ng-app&gt;
     &lt;body ng-controller="MyCtrl"&gt;
         &lt;input ng-model="text" type="text" /&gt;
-        &lt;label&gt;[[text]]&lt;/label&gt;
+        &lt;label&gt;{{text}}&lt;/label&gt;
         &lt;button ng-click="templateSubmit()"&gt;{{btnText}}&lt;/button&gt;
     &lt;/body&gt;
 &lt;/html&gt;
@@ -209,13 +210,13 @@ angular.controller('MyCtrl', ['$scope', function ($scope) {
                     </p>
                     <div ng-controller="TemplateCtrl">
                         <p><input ng-model="text" type="text"/></p>
-                        <p><small>{{text}}</small></p>
+                        <p><small>[[text]]</small></p>
                         <button ng-click="templateSubmit()">Submit</button>
                     </div>
                 </section>
             </section>
 
-            <section>
+            <section ng-controller="DirectiveCtrl">
                 <section>
                     <h1>Directives</h1>
                 </section>
@@ -257,7 +258,7 @@ angular.controller('MyCtrl', ['$scope', function ($scope) {
                     <p><small>The ngController directive attaches a controller class to the view by creating a new scope.</small></p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 &lt;div ng-controller="MyController"&gt;
-    Controller scope: [[something]]
+    Controller scope: {{something}}
 &lt;/div&gt;
                     </code></pre>
                 </section>
@@ -275,8 +276,8 @@ angular.controller('MyCtrl', ['$scope', function ($scope) {
                     </code></pre>
                     <p><strong>ngHref | ngSrc</strong></p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-&lt;a ng-href="http://www.gravatar.com/avatar/[[hash]]"&gt;link&lt;/a&gt;
-&lt;img ng-src="http://www.gravatar.com/avatar/[[hash]]"/&gt;
+&lt;a ng-href="http://www.gravatar.com/avatar/{{hash}}"&gt;link&lt;/a&gt;
+&lt;img ng-src="http://www.gravatar.com/avatar/{{hash}}"/&gt;
                     </code></pre>
                 </section>
 
@@ -285,32 +286,18 @@ angular.controller('MyCtrl', ['$scope', function ($scope) {
                     <p><strong>ngClick | ngDblclick | ngInit</strong></p>
                     <p><small>ngClick and ngDblclick attach a listener on click and dblclick event of the element, while ngInit is used to initialize a variable in the current scope.</small></p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-&lt;button ng-click="singleCount = singleCount + 1" ng-init="10"&gt;Click me&lt;button&gt;
+&lt;button ng-click="singleCount = singleCount + 1" ng-init="singleCount = 10"&gt;Click me&lt;button&gt;
 &lt;button ng-dblclick="count = count + 1" ng-init="count = 0"&gt;Double click me&lt;button&gt;
                     </code></pre>
 
                     <div>
                         <button style="width: 110px;" ng-click="singleCount = singleCount + 1" ng-init="singleCount = 10">Click me</button>
-                        <small style="margin: 16px 0 0 10px; width: 50px;">{{singleCount}}</small>
+                        <small style="margin: 16px 0 0 10px; width: 50px;">[[singleCount]]</small>
                     </div>
                     <div>
                         <button style="width: 110px;" ng-dblclick="count = count + 1" ng-init="count = 0">Double click me</button>
-                        <small style="margin: 16px 0 0 10px; width: 50px;">{{count}}</small>
+                        <small style="margin: 16px 0 0 10px; width: 50px;">[[count]]</small>
                     </div>
-
-
-                    <p><strong>ngIf | ngInclude | ngSwitch</strong></p>
-                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-
-                    </code></pre>
-                    <p><strong>ngModel</strong></p>
-                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-
-                    </code></pre>
-                    <p><strong>ngOptions</strong></p>
-                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-
-                    </code></pre>
                 </section>
 
                 <section>
@@ -326,20 +313,77 @@ angular.controller('MyCtrl', ['$scope', function ($scope) {
                         <input style="width: 110px;" type="text" ng-model="value"/>
                         <small style="margin: 16px 0 0 10px; width: 50px;" ng-if="value > 0">Positive</small>
                     </div>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+&lt;div ng-switch="selection"&gt;
+    &lt;div ng-switch-when="Go Lang"&gt;Go Lang&lt;/div&gt;
+    &lt;div ng-switch-when="Dart"&gt;Dart&lt;/div&gt;
+    &lt;div ng-switch-default&gt;AngularJS&lt;/div&gt;
+&lt;/div&gt;
+                    </code></pre>
                     <div>
-                        <input style="width: 110px;" type="text" ng-model="value"/>
-                        <small style="margin: 16px 0 0 10px; width: 50px;" ng-if="value > 0">Positive</small>
+                        <select ng-model="selection" ng-options="tool for tool in tools"></select>
+                        <span ng-switch="selection">
+                            <small style="margin: 16px 0 0 10px; width: 90px;" ng-switch-when="Dart">Dart</small>
+                            <small style="margin: 16px 0 0 10px; width: 90px;" ng-switch-when="Go Lang">Go Lang</small>
+                            <small style="margin: 16px 0 0 10px; width: 90px;" ng-switch-default>AngularJS</small>
+                        </span>
                     </div>
+                </section>
 
-
+                <section>
+                    <h3>Built-in directives in detail - 5</h3>
                     <p><strong>ngModel</strong></p>
+                    <p><small>
+                        The ngModel directive binds the view into the model using NgModelController, which is created and exposed by this directive.
+                        It's responsible for providing validation behaviour and keeping the state of the control.
+                    </small></p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-
+.textInput.ng-invalid {
+    color: white;
+    background: red;
+}
+&lt;input type="text" class="textInput" ng-model="name" ng-pattern="/^Wilk$/"/&gt;
+&lt;label&gt;{{name}}&lt;/label&gt;
                     </code></pre>
-                    <p><strong>ngOptions</strong></p>
+                    <div>
+                        <input type="text" class="textInput" ng-model="name" ng-pattern="/^Wilk$/"/>
+                        <small style="margin: 16px 0 0 10px; width: 50px;">[[name]]</small>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Built-in directives in detail - 6</h3>
+                    <p><strong>ngOptions | ngRepeat</strong></p>
+                    <p><small>
+                        ngOptions is a comprehension expression that shows its most power combined with the select element: it iterates through a given collection, returning the current item that have to be displayed into the select.
+                        ngRepeat instantiates a template once per item from a collection and each template instance gets its own scope.
+                    </small></p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-
+&lt;article ng-repeat="article in articles"&gt;
+    &lt;header&gt;
+        {{article.title}}
+    &lt;/header&gt;
+    &lt;content&gt;
+        {{article.body}}
+    &lt;/content&gt;
+    &lt;footer&gt;
+        {{article.notes}}
+    &lt;/footer&gt;
+&lt;/article&gt;
                     </code></pre>
+                    <div>
+                        <small ng-repeat="article in articles">
+                            <span>
+                                [[article.title]]
+                            </span>
+                            <span>
+                                [[article.body]]
+                            </span>
+                            <span>
+                                [[article.notes]]
+                            </span>
+                        </small>
+                    </div>
                 </section>
 
                 <section>
@@ -451,15 +495,15 @@ function link(scope, iElement, iAttrs, controller, transcludeFn) { ... }
                     <h3>Filters within templates</h3>
                     <p>Filters can be applied to expressions in view templates using the following syntax:</p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-[[ expression | filter ]]
+{{ expression | filter }}
                     </code></pre>
                     <p>It's possible to chain more filters:</p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-[[ expression | filter1 | filter2 | ... ]]
+{{ expression | filter1 | filter2 | ... }}
                     </code></pre>
                     <p>Filters may have arguments:</p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-[[ expression | filter:argument1:argument2:... ]]
+{{ expression | filter:argument1:argument2:... }}
                     </code></pre>
                 </section>
 
