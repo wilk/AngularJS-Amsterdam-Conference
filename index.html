@@ -286,7 +286,7 @@ angular.controller('MyCtrl', ['$scope', function ($scope) {
                     <p><strong>ngClick | ngDblclick | ngInit</strong></p>
                     <p><small>ngClick and ngDblclick attach a listener on click and dblclick event of the element, while ngInit is used to initialize a variable in the current scope.</small></p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-&lt;button ng-click="singleCount = singleCount + 1" ng-init="singleCount = 10"&gt;Click me&lt;button&gt;
+&lt;button ng-click="aCount = aCount + 1" ng-init="aCount = 10"&gt;Click me&lt;button&gt;
 &lt;button ng-dblclick="count = count + 1" ng-init="count = 0"&gt;Double click me&lt;button&gt;
                     </code></pre>
 
@@ -373,7 +373,7 @@ angular.controller('MyCtrl', ['$scope', function ($scope) {
                     </code></pre>
                     <div>
                         <small ng-repeat="article in articles">
-                            <span>
+                            | <span>
                                 [[article.title]]
                             </span>
                             <span>
@@ -381,7 +381,7 @@ angular.controller('MyCtrl', ['$scope', function ($scope) {
                             </span>
                             <span>
                                 [[article.notes]]
-                            </span>
+                            </span> |
                         </small>
                     </div>
                 </section>
@@ -464,7 +464,7 @@ function link(scope, iElement, iAttrs, controller, transcludeFn) { ... }
                 </section>
             </section>
 
-            <section>
+            <section ng-controller="FilterCtrl">
                 <section>
                     <h1>Filters</h1>
                 </section>
@@ -489,6 +489,7 @@ function link(scope, iElement, iAttrs, controller, transcludeFn) { ... }
                         <li>number</li>
                         <li>orderBy</li>
                     </ul>
+                    <p>// TODO: add link to filter docs</p>
                 </section>
 
                 <section>
@@ -515,6 +516,55 @@ angular.controller('MyCtrl', ['dateFilter', function(dateFilter) {
     var date = dateFilter(new Date(), 'Ymd');
 }]);
                     </code></pre>
+                </section>
+
+                <section>
+                    <h3>Built-in filters in detail - 1</h3>
+                    <p><strong>Currency</strong></p>
+                    <p><small>Formats a number as a currency.</small></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+{{amount | currency:'€':2}} or currencyFilter(amount, '€', 2);
+{{amount | currency:'$':2}} or currencyFilter(amount, '$', 2);
+{{amount | currency:'£':2}} or currencyFilter(amount, '£', 2);
+                    </code></pre>
+                    <div>
+                        <input type="number" ng-model="amount"/>
+                        <small style="margin: 16px 0 0 10px; width: 50px;">[[amount | currency:'€':2]]</small>
+                        <small style="margin: 16px 0 0 10px; width: 50px;">[[amount | currency:'$':2]]</small>
+                        <small style="margin: 16px 0 0 10px; width: 50px;">[[amount | currency:'£':2]]</small>
+                    </div>
+
+                    <p><strong>Date</strong></p>
+                    <p><small>Formats date to a string based on the requested format.</small></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+{{today | date:'d/M/yyyy'}} or dateFilter(today, 'd/M/yyyy');
+                    </code></pre>
+                    <div>
+                        <input type="date" ng-model="today"/>
+                        <small style="margin: 16px 0 0 10px; width: 50px;">[[today | date:'d/M/yyyy']]</small>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Built-in filters in detail - 2</h3>
+                    <p><strong>JSON</strong></p>
+                    <p><small>Converts a Javascript Object into JSON string.</small></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+{{objectToDebug | json}} or jsonFilter(objectToDebug);
+                    </code></pre>
+                    <div>
+                        <small style="margin: 16px 0 0 10px;">[[objectToDebug | json]]</small>
+                    </div>
+
+                    <p><strong>orderBy</strong></p>
+                    <p><small>Orders a specified array by the expression predicate. It is ordered alphabetically for strings and numerically for numbers.</small></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+{{list | orderBy:predicate:reverse}} or orderByFilter(list, predicate, reverse);
+                    </code></pre>
+                    <div>
+                        <input type="date" ng-model="today"/>
+                        <small style="margin: 16px 0 0 10px; width: 50px;">[[today | date:'d/M/yyyy']]</small>
+                    </div>
                 </section>
 
                 <section>
