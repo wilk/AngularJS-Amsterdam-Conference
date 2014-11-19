@@ -22,4 +22,9 @@ angular
             {title: 'Article B', body: 'Content of article B', notes: 'Notes of article B'},
             {title: 'Article C', body: 'Content of article C', notes: 'Notes of article C'}
         ];
+    }])
+    .controller('FilterCtrl', ['$scope', function ($scope) {
+        $scope.amount = 0;
+        $scope.today = new Date();
+        $scope.objectToDebug = {a:10, b:30, c:[1,2,3]};
     }]);
