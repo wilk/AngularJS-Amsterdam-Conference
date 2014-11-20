@@ -576,22 +576,39 @@ angular.controller('MyCtrl', ['dateFilter', function(dateFilter) {
                         Writing your own filter is very easy: just register a new filter factory function with your module.
                         This factory function should return a new filter function which takes the input value as the first argument. Any filter arguments are passed in as additional arguments to the filter function.
                     </p>
-                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-angular.filter('MyFilter', function(dateFilter) {
-    return function (value, secondArg) {
-        return '*** ' + secondArg + value + secondArg + ' ***';
-    };
-});
-                    </code></pre>
                 </section>
 
                 <section>
                     <h3>Code sample</h3>
-                    <p>TODO: example of a custom filter used in a controller or template</p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.filter('star', function(uppercaseFilter) {
+    return function (value, starNumber) {
+        value = String(value);
+        starNumber = starNumber || 0;
+        var stars = '';
+
+        for (var i = 0; i < starNumber; i++) stars += '*';
+        result.push(stars);
+        result.push(uppercaseFilter(value));
+        result.push(stars);
+        if (value && value.length > 0) return result.join(' ');
+        else return '';
+    };
+});
+
+&lt;p&gt;{{name | star:starNumber}}&lt;/p&gt;
+                    </code></pre>
+                    <div>
+                        <div>
+                            <small style="margin-top: 16px;">Stars:</small> <input type="number" ng-model="starNumber"/>
+                            <small style="margin-top: 16px;">Name:</small> <input type="text" ng-model="name"/>
+                        </div>
+                        <small style="margin: 16px 0 0 10px; width: 500px;">[[name | star:starNumber]]</small>
+                    </div>
                 </section>
             </section>
 
-            <section>
+            <section ng-controller="ServiceCtrl">
                 <section>
                     <h1>Services | Factories | Providers</h1>
                 </section>
