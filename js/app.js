@@ -35,4 +35,28 @@ angular
         $scope.predicates = ['name', 'telephone', 'age'];
         $scope.predicate = $scope.predicates[0];
         $scope.reverse = false;
+        $scope.name = '';
+        $scope.starNumber = 0;
+    }])
+    .controller('ServiceCtrl', ['$scope', function ($scope) {
+
+    }])
+    .filter('star', ['uppercaseFilter', function (uppercaseFilter) {
+        return function (value, starNumber) {
+            value = String(value);
+            starNumber = starNumber || 0;
+            var stars = '',
+                result = [];
+
+            for (var i = 0; i < starNumber; i++) {
+                stars += '*';
+            }
+
+            result.push(stars);
+            result.push(uppercaseFilter(value));
+            result.push(stars);
+
+            if (value && value.length > 0) return result.join(' ');
+            else return '';
+        };
     }]);
