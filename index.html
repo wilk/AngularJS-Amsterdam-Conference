@@ -650,6 +650,76 @@ angular.controller('MyCtrl', ['$http', function ($http) {
                 </section>
 
                 <section>
+                    <h3>Built-in services</h3>
+                    <p>AngularJS has several built-in services:</p>
+                    <ul>
+                        <li>currency</li>
+                        <li>date</li>
+                        <li>json</li>
+                        <li>limitTo</li>
+                        <li>lowercase</li>
+                        <li>uppercase</li>
+                        <li>number</li>
+                        <li>orderBy</li>
+                    </ul>
+                    <p>// TODO: add link to service docs</p>
+                </section>
+
+                <section>
+                    <h3>Built-in services in detail - 1</h3>
+                    <p><strong>$filter</strong></p>
+                    <p><small>Retrieves the filter function requested</small></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.controller('MyCtrl', ['$filter', '$scope', function ($filter, $scope) {
+    $scope.filter = function () {
+        var dateFilter = $filter('date');
+        $scope.americanDate = dateFilter($scope.date, 'M/d/yyyy');
+    };
+}]);
+                    </code></pre>
+                    <div>
+                        <div>
+                            <small style="margin-top: 16px;">Date:</small> <input type="date" ng-model="date"/>
+                            <button ng-click="filter()">Filter</button>
+                        </div>
+                        <small>American Date: [[americanDate]]</small>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Built-in services in detail - 2</h3>
+                    <p><strong>$http</strong></p>
+                    <p><small>The $http service is a core Angular service that facilitates communication with the remote HTTP servers via the browser's XMLHttpRequest object or via JSONP.</small></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.controller('MyCtrl', ['$http', '$scope', function ($http, $scope) {
+    $scope.getUser = function () {
+        $http.get('/Users.json')
+            .success(function (users) {
+                $scope.users = users;
+            });
+    };
+}]);
+                    </code></pre>
+                    <div>
+                        <div>
+                            <button ng-click="getUsers()">Get Users</button>
+                            <table>
+                                <tr>
+                                    <th><small>Name</small></th>
+                                    <th><small>Telephone</small></th>
+                                    <th><small>Age</small></th>
+                                </tr>
+                                <tr ng-repeat="user in users">
+                                    <td><small>[[user.name]]</small></td>
+                                    <td><small>[[user.telephone]]</small></td>
+                                    <td><small>[[user.age]]</small></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
                     <h3>Creating a custom service</h3>
                     <p>
                         <strong>angular.service</strong> allows to define a new service:
