@@ -1,0 +1,13 @@
+[{
+    "name": "Mario",
+    "telephone": "123 456 789",
+    "age": 35
+}, {
+    "name": "Luigi",
+    "telephone": "321 654 987",
+    "age": 30
+}, {
+    "name": "Vincenzo",
+    "telephone": "456 123 789",
+    "age": 27
+}]
