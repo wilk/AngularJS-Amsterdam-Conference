@@ -38,8 +38,27 @@ angular
         $scope.name = '';
         $scope.starNumber = 0;
     }])
-    .controller('ServiceCtrl', ['$scope', function ($scope) {
+    .controller('ServiceCtrl', ['$scope', '$filter', '$http', '$httpBackend', function ($scope, $filter, $http, $httpBackend) {
+        $scope.date = '';
+        $scope.americanDate = '';
+        $scope.filter = function () {
+            var dateFilter = $filter('date');
+            $scope.americanDate = dateFilter($scope.date, 'M/d/yyyy');
+        };
 
+        /*$httpBackend.when('GET', '/Users.json')
+            .respond([
+                {name: 'Mario', telephone: '123 456 789', age: 35},
+                {name: 'Luigi', telephone: '321 654 987', age: 30},
+                {name: 'Vincenzo', telephone: '456 123 789', age: 27}
+            ]);*/
+        $scope.users = [];
+        $scope.getUsers = function () {
+            $http.get('fixtures/Users.json')
+                .success(function (users) {
+                    $scope.users = users;
+                });
+        };
     }])
     .filter('star', ['uppercaseFilter', function (uppercaseFilter) {
         return function (value, starNumber) {
