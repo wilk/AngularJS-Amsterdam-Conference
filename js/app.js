@@ -27,4 +27,12 @@ angular
         $scope.amount = 0;
         $scope.today = new Date();
         $scope.objectToDebug = {a:10, b:30, c:[1,2,3]};
+        $scope.users = [
+            {name: 'Mario', telephone: '123 456 789', age: 35},
+            {name: 'Luigi', telephone: '321 654 987', age: 30},
+            {name: 'Vincenzo', telephone: '456 123 789', age: 27}
+        ];
+        $scope.predicates = ['name', 'telephone', 'age'];
+        $scope.predicate = $scope.predicates[0];
+        $scope.reverse = false;
     }]);
