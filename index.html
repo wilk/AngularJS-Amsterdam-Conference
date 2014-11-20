@@ -562,8 +562,11 @@ angular.controller('MyCtrl', ['dateFilter', function(dateFilter) {
 {{list | orderBy:predicate:reverse}} or orderByFilter(list, predicate, reverse);
                     </code></pre>
                     <div>
-                        <input type="date" ng-model="today"/>
-                        <small style="margin: 16px 0 0 10px; width: 50px;">[[today | date:'d/M/yyyy']]</small>
+                        <input type="checkbox" ng-model="reverse"/>
+                        <select ng-model="predicate" ng-options="predicate for predicate in predicates"></select>
+                        <ul>
+                            <li ng-repeat="user in users | orderBy:predicate:reverse">[[user.name]] - [[user.telephone]] - [[user.age]]</li>
+                        </ul>
                     </div>
                 </section>
 
