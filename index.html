@@ -720,39 +720,97 @@ angular.controller('MyCtrl', ['$http', '$scope', function ($http, $scope) {
                 </section>
 
                 <section>
-                    <h3>Creating a custom service</h3>
-                    <p>
-                        <strong>angular.service</strong> allows to define a new service:
-                    </p>
+                    <h3>Built-in services in detail - 3</h3>
+                    <p><strong>$httpBackend</strong></p>
+                    <p><small>Fake HTTP backend implementation suitable for end-to-end testing or backend-less development of applications that use the $http service.</small></p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-angular.service('Mario', ['$http', function ($http) {
-    this.salutation = function () {
-        console.log('Hello, I\'m Mario!');
-    };
-
-    this.followPath = function (path) {
-        $http.get(path).success(onSuccess).error(onError);
-    };
+angular.run(['$httpBackend', '$http', function ($httpBackend, $http) {
+    $httpBackend.when('GET', '/users')
+        .response([
+            {name: 'Mario', telephone: '123 456 789', age: 35},
+            {name: 'Luigi', telephone: '321 654 987', age: 30},
+            {name: 'Vincenzo', telephone: '456 123 789', age: 27}
+        ]);
+    $http.get('users')
+        .success(function (users) {})
+        .error(function (err) {});
 }]);
                     </code></pre>
                 </section>
 
                 <section>
-                    <h3>Service, factory, value, provider, ...?</h3>
+                    <h3>Built-in services in detail - 4</h3>
+                    <p><strong>$location</strong></p>
+                    <p><small>The $location service parses the URL in the browser address bar (based on the window.location) and makes the URL available to your application. Changes to the URL in the address bar are reflected into $location service and changes to $location are reflected into the browser address bar.</small></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.controller('MyCtrl', ['$scope', '$location', function ($scope, $location) {
+    $scope.url = {};
+    $scope.getUrl = function () {
+        $scope.url.absUrl = $location.absUrl();
+        $scope.url.url = $location.url();
+        $scope.url.protocol = $location.protocol();
+        $scope.url.host = $location.host();
+        $scope.url.path = $location.path();
+        $scope.url.port = $location.port();
+    };
+}]);
+                    </code></pre>
+                    <div>
+                        <button ng-click="getUrl()">Get Url</button>
+                        <p>[[url | json]]</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Creating a custom service</h3>
+                    <p>
+                        <strong>angular.service</strong> allows to define a new service:
+                    </p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.service('Mario', ['$http', '$log', function ($http, $log) {
+    this.salutation = function () {
+        alert('Hi, I\'m Mario!');
+    };
+    this.findLuigi = function () {
+        $http.get('/luigi')
+            .success(function (luigi) {
+                alert('I found you, Luigi!');
+                $log.debug(luigi);
+            });
+    };
+}])
+.controller('MarioCtrl', ['Mario', function (Mario) {
+    Mario.salutation();
+    Mario.findLuigi();
+}]);
+                    </code></pre>
+                    <div>
+                        <button ng-click="salutation()">Salutation</button>
+                        <button ng-click="findLuigi()">Find Luigi</button>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Service, factory and provider</h3>
                     <p>
                         There are several ways to share code across the application:
                     </p>
                     <ul>
-                        <li>Service: when declaring a service as an injectable argument you will be provided with an instance of the function. In other words new FunctionYouPassedToService()</li>
-                        <li>Factory: when declaring a factory as an injectable argument you will be provided with the value that is returned by invoking the function reference passed to module.factory</li>
-                        <li>Value: it returns just a value</li>
-                        <li>Provider: it allows to configure a service during the module configuration phase</li>
+                        <li>provider(provider) - registers a service provider with the $injector</li>
+                        <li>service(class): when declaring a service as an injectable argument you will be provided with an instance of the class. In other words new ClassYouPassedToService()</li>
+                        <li>factory(fn): when declaring a factory as an injectable argument you will be provided with the value that is returned by invoking the function reference passed to module.factory</li>
                     </ul>
                 </section>
 
                 <section>
-                    <h3>Code sample</h3>
-                    <p>TODO: think about an example per one</p>
+                    <h3>Value and constant</h3>
+                    <p>
+                        Another way to share code is with angular.value and angular.constant:
+                    </p>
+                    <ul>
+                        <li>constant(obj) - registers a value/object that can be accessed by providers and services.</li>
+                        <li>value(obj) - registers a value/object that can only be accessed by services, not providers.</li>
+                    </ul>
                 </section>
             </section>
 
@@ -902,178 +960,6 @@ angular.module('MyApp', ['MyModule.values'])
                     <h3>Protractor (E2E Test)</h3>
                     <p>Protractor is an end to end test runner which simulates user interactions that will help you verify the health of your Angular application.</p>
                    <p>TODO: example of e2e test</p>
-                </section>
-            </section>
-
-            <section>
-                <h1>Core Tools</h1>
-            </section>
-
-            <section>
-                <section>
-                    <h1>Directives (in detail)</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>ngApp</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>ngController</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>ngClick | ngDblClick</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>ngCloack</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>ngHide | ngShow</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>ngHref | ngSrc</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>ngIf | ngInclude | ngSwitch</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>ngInit</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>ngModel</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>ngRepeat</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>ngOptions</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>ngView</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-            </section>
-
-            <section>
-                <section>
-                    <h1>Filters (in detail)</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>currency</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>date</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>filter</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>limitTo</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>orderBy</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-            </section>
-
-            <section>
-                <section>
-                    <h1>Services (in detail)</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>$filter</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>$http</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>$httpBackend</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>$location</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>$log</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>$q</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>$scope</h1>
-                    <h3></h3>
-                    <p></p>
                 </section>
             </section>
 
