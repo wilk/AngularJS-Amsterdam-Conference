@@ -953,13 +953,42 @@ angular.module('MyApp', ['MyModule.values'])
                 <section>
                     <h3>Jasmine (Unit Test)</h3>
                     <p>Jasmine is a testing framework and has several powerful constructors that allow to make assertions and expections on different expression.</p>
-                    <p>TODO: example of unit test</p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+var Mario;
+describe('Testing Mario service', function () {
+    beforeEach(module('MyModule'));
+    beforeEach(inject(function (_Mario_) {
+        Mario = _Mario_;
+    }));
+
+    describe('Testing getCoins method', function () {
+        it('should return an empty array of coins', function () {
+            var coins = Mario.getCoins();
+            expect(coins).toBeDefined();
+            expect(coins.length).toBeDefined();
+            expect(coins.length).toEqual(0);
+        });
+    });
+});
+                    </code></pre>
                 </section>
 
                 <section>
                     <h3>Protractor (E2E Test)</h3>
                     <p>Protractor is an end to end test runner which simulates user interactions that will help you verify the health of your Angular application.</p>
-                   <p>TODO: example of e2e test</p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+describe('Users Table', function () {
+    it('should filter the users by name', function () {
+        // Load users
+        element(by.css(':button')).click();
+        expect(element.all(by.repeater('user in users')).count()).toEqual(3);
+
+        // Filter by name (Mario)
+        element(by.model('name')).sendKeys('Mario');
+        expect(element.all(by.repeater('user in users')).count()).toEqual(1);
+    });
+});
+                    </code></pre>
                 </section>
             </section>
 
@@ -992,25 +1021,20 @@ angular.module('MyApp', ['MyModule.values'])
             <section>
                 <section>
                     <h1>ngResource</h1>
-                    <h3></h3>
+                </section>
+
+                <section>
+                    <h3>What is it?</h3>
                     <p></p>
                 </section>
 
                 <section>
-                    <h1>What is it?</h1>
-                    <h3></h3>
+                    <h3>$resource service</h3>
                     <p></p>
                 </section>
 
                 <section>
-                    <h1>$resource service</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>Code sample</h1>
-                    <h3></h3>
+                    <h3>Code sample</h3>
                     <p></p>
                 </section>
             </section>
@@ -1018,31 +1042,25 @@ angular.module('MyApp', ['MyModule.values'])
             <section>
                 <section>
                     <h1>ngRoute</h1>
-                    <h3></h3>
+                </section>
+
+                <section>
+                    <h3>What is it?</h3>
                     <p></p>
                 </section>
 
                 <section>
-                    <h1>What is it?</h1>
-                    <h3></h3>
+                    <h3>$routeProvider</h3>
                     <p></p>
                 </section>
 
                 <section>
-                    <h1>$routeProvider</h1>
-                    <h3></h3>
+                    <h3>$routeParams</h3>
                     <p></p>
                 </section>
 
                 <section>
-                    <h1>$routeParams</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>Code sample</h1>
-                    <h3></h3>
+                    <h3>Code sample</h3>
                     <p></p>
                 </section>
             </section>
@@ -1050,27 +1068,21 @@ angular.module('MyApp', ['MyModule.values'])
             <section>
                 <section>
                     <h1>ngCookie</h1>
-                    <h3></h3>
+                </section>
+
+                <section>
+                    <h3>Difference between $cookies and $cookieStore</h3>
                     <p></p>
                 </section>
 
                 <section>
-                    <h1>Difference between $cookies and $cookieStore</h1>
-                    <h3></h3>
-                    <p></p>
-                </section>
-
-                <section>
-                    <h1>Code sample</h1>
-                    <h3></h3>
+                    <h3>Code sample</h3>
                     <p></p>
                 </section>
             </section>
 
             <section>
                 <h1>Libraries</h1>
-                <h3></h3>
-                <p></p>
             </section>
 
             <section>
@@ -1118,20 +1130,17 @@ angular.module('MyApp', ['MyModule.values'])
                 </section>
 
                 <section>
-                    <h1>What is it?</h1>
-                    <h3></h3>
+                    <h3>What is it?</h3>
                     <p></p>
                 </section>
 
                 <section>
-                    <h1>Restangular vs ngResource vs $http</h1>
-                    <h3></h3>
+                    <h3>Restangular vs ngResource vs $http</h3>
                     <p></p>
                 </section>
 
                 <section>
-                    <h1>Code sample</h1>
-                    <h3></h3>
+                    <h3>Code sample</h3>
                     <p></p>
                 </section>
             </section>
@@ -1142,40 +1151,30 @@ angular.module('MyApp', ['MyModule.values'])
                 </section>
 
                 <section>
-                    <h1>What is it?</h1>
-                    <h3></h3>
+                    <h3>What is it?</h3>
                     <p></p>
                 </section>
 
                 <section>
-                    <h1>What is it composed of?</h1>
-                    <h3></h3>
+                    <h3>What is it composed of?</h3>
                     <p></p>
                 </section>
             </section>
 
             <section>
                 <h1>Useful Refs</h1>
-                <h3></h3>
-                <p></p>
             </section>
 
             <section>
                 <h1>Conclusion</h1>
-                <h3></h3>
-                <p></p>
             </section>
 
             <section>
                 <h1>Questions?</h1>
-                <h3></h3>
-                <p></p>
             </section>
 
             <section>
                 <h1>Credits</h1>
-                <h3></h3>
-                <p></p>
             </section>
 
 
