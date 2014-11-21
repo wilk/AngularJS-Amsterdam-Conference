@@ -38,7 +38,7 @@ angular
         $scope.name = '';
         $scope.starNumber = 0;
     }])
-    .controller('ServiceCtrl', ['$scope', '$filter', '$http', '$httpBackend', function ($scope, $filter, $http, $httpBackend) {
+    .controller('ServiceCtrl', ['$scope', '$filter', '$http', '$httpBackend', '$location', 'Mario', function ($scope, $filter, $http, $httpBackend, $location, Mario) {
         $scope.date = '';
         $scope.americanDate = '';
         $scope.filter = function () {
@@ -57,6 +57,32 @@ angular
             $http.get('fixtures/Users.json')
                 .success(function (users) {
                     $scope.users = users;
+                });
+        };
+
+        $scope.url = {};
+        $scope.getUrl = function () {
+            $scope.url.absUrl = $location.absUrl();
+            $scope.url.url = $location.url();
+            $scope.url.protocol = $location.protocol();
+            $scope.url.host = $location.host();
+            $scope.url.path = $location.path();
+            $scope.url.port = $location.port();
+        };
+
+        $scope.salutation = Mario.salutation;
+        $scope.findLuigi = Mario.findLuigi;
+    }])
+    .service('Mario', ['$http', '$log', function ($http, $log) {
+        this.salutation = function () {
+            alert('Hi, I\'m Mario!');
+        };
+
+        this.findLuigi = function () {
+            $http.get('/luigi')
+                .success(function (luigi) {
+                    alert('I found you Luigi!');
+                    $log.debug(luigi);
                 });
         };
     }])
