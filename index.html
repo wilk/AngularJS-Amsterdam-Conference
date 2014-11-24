@@ -814,7 +814,7 @@ angular.service('Mario', ['$http', '$log', function ($http, $log) {
                 </section>
             </section>
 
-            <section>
+            <section ng-controller="FormCtrl">
                 <section>
                     <h1>Data Validation</h1>
                 </section>
@@ -856,8 +856,89 @@ angular.service('Mario', ['$http', '$log', function ($http, $log) {
                 </section>
 
                 <section>
-                    <h3>Code sample</h3>
-                    <p>TODO: a form sample with a custom validation</p>
+                    <h3>Code sample - Markup</h3>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+&lt;form name="form" class="css-form" novalidate&gt;
+    &lt;label&gt;Name:&lt;/label&gt;
+    &lt;input type="text" ng-model="user.name" name="name" required /&gt;
+
+    &lt;label&gt;Email:&lt;/label&gt;
+    &lt;input type="email" ng-model="user.email" name="email" required /&gt;
+    &lt;div ng-show="form.email.$dirty && form.email.$invalid"&gt;Invalid:
+        &lt;span ng-show="form.email.$error.required"&gt;An email is requested.&lt;/span&gt;
+        &lt;span ng-show="form.email.$error.email"&gt;This is not a valid email.&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;label&gt;Gender:&lt;/label&gt;
+    &lt;input type="radio" ng-model="user.gender" name="gender" value="male"
+        required /&gt;
+    male
+    &lt;input type="radio" ng-model="user.gender" name="gender" value="female"
+        required /&gt;
+    female
+
+    &lt;label&gt;I agree:&lt;/label&gt;
+    &lt;input type="checkbox" ng-model="user.agree" name="agree" required /&gt;
+    &lt;div ng-show="!user.agree">Please agree.&lt;/div&gt;
+
+    &lt;button ng-click="reset()" ng-disabled="isUnchanged(user)"&gt;Reset&lt;/button&gt;
+    &lt;button ng-click="update(user)"
+        ng-disabled="form.$invalid || isUnchanged(user)"&gt;
+        Save
+    &lt;/button&gt;
+&lt;/form&gt;
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Code sample - Javascript</h3>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.controller('FormCtrl', ['$scope', function ($scope) {
+    $scope.origin = {};
+    $scope.reset = function () {
+        $scope.user = angular.copy($scope.origin);
+    };
+    $scope.update = function (user) {
+        $scope.origin = angular.copy(user);
+    };
+    $scope.isUnchanged = function (user) {
+        return angular.equals(user, $scope.origin);
+    };
+    $scope.reset();
+}]);
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Code sample - Live</h3>
+                    <form name="form" class="css-form" novalidate>
+                        <div>
+                            <label>Name:</label>
+                            <input type="text" ng-model="user.name" name="name" required />
+                        </div>
+                        <div>
+                            <label>Email:</label>
+                            <input type="email" ng-model="user.email" name="email" required />
+                            <div ng-show="form.email.$dirty && form.email.$invalid">Invalid:
+                                <span ng-show="form.email.$error.required">An email is requested.</span>
+                                <span ng-show="form.email.$error.email">This is not a valid email.</span>
+                            </div>
+                        </div>
+                        <div>
+                            <label>Gender:</label>
+                            <input type="radio" ng-model="user.gender" name="gender" value="male" required />male
+                            <input type="radio" ng-model="user.gender" name="gender" value="female" required />female
+                        </div>
+                        <div>
+                            <label>I agree:</label>
+                            <input type="checkbox" ng-model="user.agree" name="agree" required />
+                            <div ng-show="!user.agree">Please agree.</div>
+                        </div>
+                        <div>
+                            <button ng-click="reset()" ng-disabled="isUnchanged(user)">Reset</button>
+                            <button ng-click="update(user)" ng-disabled="form.$invalid || isUnchanged(user)">Save</button>
+                        </div>
+                    </form>
                 </section>
             </section>
 
@@ -890,11 +971,6 @@ angular.module('MyApp', ['MyModule.values'])
         }]);
                     </code></pre>
                 </section>
-
-                <section>
-                    <h3>Code sample</h3>
-                    <p>TODO: does it need a code sample?</p>
-                </section>
             </section>
 
             <section>
@@ -922,7 +998,18 @@ angular.module('MyApp', ['MyModule.values'])
 
                 <section>
                     <h3>Code sample</h3>
-                    <p>TODO: example of a routing table</p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.module('MyModule', ['ngRoute'])
+    .config(['$routeProvider', function ($routeProvider) {
+        $routeProvider.when('/', {
+            templateUrl: 'views/mario.html',
+            controller: 'MarioCtrl'
+        })
+        .otherwise ({
+            redirectTo: '/404'
+        });
+    }]);
+                    </code></pre>
                 </section>
             </section>
 

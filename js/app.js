@@ -38,6 +38,19 @@ angular
         $scope.name = '';
         $scope.starNumber = 0;
     }])
+    .controller('FormCtrl', ['$scope', function ($scope) {
+        $scope.origin = {};
+        $scope.reset = function () {
+            $scope.user = angular.copy($scope.origin);
+        };
+        $scope.update = function (user) {
+            $scope.origin = angular.copy(user);
+        };
+        $scope.isUnchanged = function (user) {
+            return angular.equals(user, $scope.origin);
+        };
+        $scope.reset();
+    }])
     .controller('ServiceCtrl', ['$scope', '$filter', '$http', '$httpBackend', '$location', 'Mario', function ($scope, $filter, $http, $httpBackend, $location, Mario) {
         $scope.date = '';
         $scope.americanDate = '';
