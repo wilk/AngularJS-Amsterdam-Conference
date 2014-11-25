@@ -1081,8 +1081,6 @@ describe('Users Table', function () {
 
             <section>
                 <h1>Useful Modules</h1>
-                <h3></h3>
-                <p></p>
             </section>
 
             <section>
@@ -1092,17 +1090,46 @@ describe('Users Table', function () {
 
                 <section>
                     <h3>What is it?</h3>
-                    <p></p>
+                    <p>The ngResource module provides interaction support with RESTful services via the $resource service and $resourceProvider.</p>
                 </section>
 
                 <section>
                     <h3>$resource service</h3>
-                    <p></p>
+                    <p>A factory which creates a resource object that lets you interact with RESTful server-side data sources.</p>
+                    <p>When a new $resource is created, it's expected to pass the following parameters to the constructor:</p>
+                    <ul>
+                        <li>(String) url: a string representing the url of this resource</li>
+                        <li>(Object) paramDefaults: a key-value map representing default parameters that will be attached to each call in the query string</li>
+                        <li>(Object) actions: Hash with declaration of custom action. Each action will be reflected as a resource method and it will have its custom HTTP method, url and params.</li>
+                    </ul>
                 </section>
 
                 <section>
                     <h3>Code sample</h3>
-                    <p></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.module('MyModule', ['ngResource'])
+    .service('Mario', ['$resource', function ($resource) {
+        return $resource('/Mario/:id', {id: '@id'}, {
+            getStars: {
+                method: 'GET',
+                url: '/Mario/stars',
+                isArray: true
+            }
+        });
+    }])
+    .controller('MyCtrl', ['$scope', 'Mario', function ($scope, Mario) {
+        // -> GET /Mario/
+        // <- {id: 10, starCounter: 9}
+        $scope.mario = Mario.get(function () {
+            $scope.mario.starCounter = 10;
+            $scope.mario.$save(); // POST /Mario/10 {id: 10, starCounter: 10}
+        });
+        // GET /Mario/stars
+        $scope.stars = Mario.getStars(function () {
+            expect($scope.stars.length).not.toEqual(0);
+        });
+    }]);
+                    </code></pre>
                 </section>
             </section>
 
