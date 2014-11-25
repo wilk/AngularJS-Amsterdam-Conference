@@ -1113,22 +1113,72 @@ describe('Users Table', function () {
 
                 <section>
                     <h3>What is it?</h3>
-                    <p></p>
+                    <p>
+                        ngRoute is an Angular module providing features to handle client-side routing with ease.
+                        It's mainly composed of:
+                    </p>
+                    <ul>
+                        <li>ngView: directive</li>
+                        <li>$routeProvider: provider</li>
+                        <li>$route: service</li>
+                        <li>$routeParams: service</li>
+                    </ul>
+                    <p>The idea is to use the $routeProvider initially, combined with the ngView directive to load the route template associated and then to use the $route/$routeParams service to get params.</p>
                 </section>
 
                 <section>
                     <h3>$routeProvider</h3>
-                    <p></p>
+                    <p>
+                        This provider is used to configure the routing table of your application.
+                        It has two methods: when and otherwise.
+                        For each route defined with when method it's possible to configure the following properties:
+                    </p>
+                    <ul>
+                        <li>controller: the controller that will handle the route</li>
+                        <li>template: an Angular template string</li>
+                        <li>templateUrl: the url of a view (a template located in a file)</li>
+                        <li>resolve: An optional map of dependencies which should be injected into the controller.</li>
+                        <li>redirectTo: a string defining the route to redirect</li>
+                    </ul>
                 </section>
 
                 <section>
                     <h3>$routeParams</h3>
-                    <p></p>
+                    <p>The $routeParams service allows you to retrieve the current set of route parameters.</p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.controller('MyCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
+    // localhost/#/wilk/ngWebsocket/ <- mapped with $routeProvider
+    $scope.username = $routeParams.username;
+    $scope.reponame = $routeParams.reponame;
+}]);
+                    </code></pre>
                 </section>
 
                 <section>
                     <h3>Code sample</h3>
-                    <p></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.config(['$routeProvider', function ($routeProvider) {
+        $routeProvider.when('/:username/:reponame/', {
+            templateUrl: 'views/repo.html',
+            controller: 'RepoCtrl'
+        });
+    }])
+    .controller('MyCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
+        $scope.username = $routeParams.username;
+        $scope.reponame = $routeParams.reponame;
+    }]);
+
+// index.html
+&lt;div&gt;
+    &lt;ng-view&gt;&lt;/ng-view&gt;
+&lt;/div&gt;
+
+// views/repo.html
+&lt;div&gt;
+    &lt;b&gt;Username&lt;/b&gt;: {{username}}
+    &lt;b&gt;Repo Name&lt;/b&gt;: {{reponame}}
+&lt;/div&gt;
+                    </code></pre>
                 </section>
             </section>
 
