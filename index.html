@@ -1157,7 +1157,8 @@ angular.controller('MyCtrl', ['$scope', '$routeParams', function ($scope, $route
                 <section>
                     <h3>Code sample</h3>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-angular.config(['$routeProvider', function ($routeProvider) {
+angular.module('MyModule', ['ngRoute'])
+    .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/:username/:reponame/', {
             templateUrl: 'views/repo.html',
             controller: 'RepoCtrl'
@@ -1188,13 +1189,38 @@ angular.config(['$routeProvider', function ($routeProvider) {
                 </section>
 
                 <section>
-                    <h3>Difference between $cookies and $cookieStore</h3>
-                    <p></p>
+                    <h3>What is it?</h3>
+                    <p>The ngCookies module provides a convenient wrapper for reading and writing browser cookies.</p>
+                    <p>It comes with two services:</p>
+                    <ul>
+                        <li>$cookieStore</li>
+                        <li>$cookies</li>
+                    </ul>
                 </section>
 
                 <section>
-                    <h3>Code sample</h3>
-                    <p></p>
+                    <h3>$cookieStore</h3>
+                    <p>Provides a key-value (string-object) storage, that is backed by session cookies. Objects put or retrieved from this storage are automatically serialized or deserialized by angular's toJson/fromJson.</p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.module('MyModule', ['ngCookies'])
+    .controller('MyCtrl', ['$cookieStore', function ($cookieStore) {
+        $cookieStore.put('Character', 'Mario');
+        var choosenCharacter = $cookieStore.get('Character'); // Mario
+        $cookieStore.remove('Character');
+    }]);
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>$cookies</h3>
+                    <p>Provides read/write access to browser's cookies like $cookieStore. The mainly difference is that only a simple object is exposed and by adding or removing properties to/from this object, new cookies are created/deleted.</p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.module('MyModule', ['ngCookies'])
+    .controller('MyCtrl', ['$cookies', function ($cookies) {
+        var Character = $cookies.Character;
+        $cookies.Character = 'Mario';
+    }]);
+                    </code></pre>
                 </section>
             </section>
 
