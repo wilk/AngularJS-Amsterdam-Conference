@@ -49,32 +49,32 @@
 
             <section>
                 <h1>AngularJS</h1>
-                <h3></h3>
-                <p></p>
             </section>
 
             <section>
                 <h1>Aknowledgements</h1>
-                <h3></h3>
-                <p></p>
+                <p>TODO: image</p>
             </section>
 
             <section>
                 <h1>$ whoami</h1>
-                <h3></h3>
-                <p></p>
-            </section>
-
-            <section>
-                <h1>Requirements</h1>
-                <h3></h3>
-                <p></p>
+                <p>TODO: img</p>
+                <ul>
+                    <li>Software Engineer at Ibuildings Italia</li>
+                    <li>Fullstack Web Developer</li>
+                    <li>Open Source Supporter</li>
+                </ul>
+                <p>Contacts</p>
+                <ul>
+                    <li>Github: <a href="https://github.com/wilk">Wilk</a></li>
+                    <li>Twitter: <a href="https://www.twitter.com/__wilky__">@__wilky__</a></li>
+                    <li>LinkedIn: <a href="">Vincenzo Ferrari</a></li>
+                </ul>
             </section>
 
             <section>
                 <h1>Statistics</h1>
-                <h3></h3>
-                <p></p>
+                <p>TODO: some statistics about Angular usage, community modules and google searches</p>
             </section>
 
             <section>
@@ -91,7 +91,7 @@
                     <li>Testing</li>
                     <li>Useful Modules</li>
                     <li>Libraries</li>
-                    <li>Ionic Framework</li>
+                    <li>Frameworks</li>
                 </ul>
             </section>
 
@@ -110,7 +110,7 @@
                 </section>
 
                 <section>
-                    <h3>Why we need DI into our application?</h3>
+                    <h3>Why do we need DI into our application?</h3>
                     <p>It's useful to have each component declaring its dependencies and then get them injected into it by Angular.</p>
                     <p>It's possible to inject constants, values, functions and objects.</p>
                 </section>
@@ -156,7 +156,7 @@ angular.controller('MyCtrl', ['$scope', function ($scope) {
                 </section>
 
                 <section>
-                    <h3>Why Angular has a template engine?</h3>
+                    <h3>Why does Angular have a template engine?</h3>
                     <p>
                         RESTful single page web applications need to compile and render their markup.
                         This means that only raw data is sent/received to/from the network.
@@ -1261,6 +1261,18 @@ angular.module('MyModule', ['ngCookies'])
                 </section>
 
                 <section>
+                    <h3>Chemical Composition</h3>
+                    <p>Angular-UI is a tool suite that comes with a set of libraries for Angular:</p>
+                    <ul>
+                        <li>UI Utils</li>
+                        <li>UI Modules</li>
+                        <li>UI Bootstrap</li>
+                        <li>NG Grid</li>
+                        <li>UI Router</li>
+                    </ul>
+                </section>
+
+                <section>
                     <h3>UI Utils</h3>
                     <p>A utility package with no external dependencies: each module is contained in this package but can be included individually.</p>
                     <p>Some common modules:</p>
@@ -1275,22 +1287,54 @@ angular.module('MyModule', ['ngCookies'])
 
                 <section>
                     <h3>UI Modules</h3>
-                    <p></p>
+                    <p>Standalone AngularUI modules with external dependencies:</p>
+                    <ul>
+                        <li>ui-ace: Ace IDE module</li>
+                        <li>ui-calendar: web calendar view module</li>
+                        <li>ui-map: Google Maps module</li>
+                        <li>ui-ace: module for Ace IDE</li>
+                        <li>ui-ace: module for Ace IDE</li>
+                    </ul>
                 </section>
 
                 <section>
                     <h3>UI Bootstrap</h3>
-                    <p></p>
+                    <p>
+                        Twitter Bootstrap written natively in AngularJS.
+                        This repository contains a set of native AngularJS directives based on Bootstrap's markup and CSS.
+                        As a result no dependency on jQuery or Bootstrap's JavaScript is required.
+                    </p>
                 </section>
 
                 <section>
                     <h3>ngGrid</h3>
-                    <p></p>
+                    <p>
+                        Grid virtualization written natively in AngularJS and JQuery.
+                        ngGrid comes as an attribute requiring a configuration object:
+                    </p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+// views/grid.js
+&lt;div class="gridStyle" ng-grid="gridOptions"&gt;&lt;/div&gt;
+
+// app.js
+angular.module('MyModule', ['ui.grid'])
+    .controller('MyCtrl', ['$scope', function ($scope) {
+        $scope.myData = [
+            {name: "Moroni", age: 50},
+            {name: "Tiancum", age: 43},
+            {name: "Jacob", age: 27},
+            {name: "Nephi", age: 29},
+            {name: "Enos", age: 34}
+        ];
+        $scope.gridOptions = {data: 'myData'};
+    }]);
+                    </code></pre>
                 </section>
 
                 <section>
                     <h3>UI Router</h3>
-                    <p></p>
+                    <p>Nested Routing for AngularJS. It comes with a set of submodule to use in your application.</p>
+                    <p>TODO: to finish</p>
                 </section>
             </section>
 
