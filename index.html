@@ -42,16 +42,16 @@
 
 	<body>
 
-		<div class="reveal" style="background: url('http://alicialiu.net/leveling-up-angular-talk/images/8-4.png') no-repeat fixed bottom">
+		<div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 
-            <section>
+            <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
                 <h1>AngularJS</h1>
             </section>
 
-            <section>
+            <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
                 <h1>Aknowledgements</h1>
                 <p>
                     <img src="images/thesecretlab_logo.svg" />
@@ -59,31 +59,49 @@
             </section>
 
             <section>
-                <section>
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
                     <h1>$ whoami</h1>
                 </section>
 
-                <section>
-                    <div>TODO: pic</div>
-                    <div>
-                        <ul>
-                            <li>Software Engineer at Ibuildings Italia</li>
-                            <li>Fullstack Web Developer</li>
-                            <li>Open Source Supporter</li>
-                        </ul>
-                        <p>Contacts</p>
-                        <ul>
-                            <li>Github: <a href="https://github.com/wilk">Wilk</a></li>
-                            <li>Twitter: <a href="https://www.twitter.com/__wilky__">@__wilky__</a></li>
-                            <li>LinkedIn: <a href="">Vincenzo Ferrari</a></li>
-                        </ul>
-                    </div>
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
+                    <h3>Vincenzo (Wilk) Ferrari</h3>
+
+                    <ul>
+                        <li>Software Engineer at Ibuildings Italia</li>
+                        <li>Fullstack Web Developer</li>
+                        <li>Open Source Supporter</li>
+                    </ul>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
+                    <h3>Github</h3>
+                    <img style="width: 650px;" src="images/github.png"/>
+                    <p><a href="https://github.com/wilk">https://github.com/wilk</a></p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
+                    <h3>Contacts</h3>
+                    <ul>
+                        <li>Google+: <a href="https://plus.google.com/u/0/+VincenzoFerrari/">+VincenzoFerrari</a></li>
+                        <li>Twitter: <a href="https://www.twitter.com/__wilky__">@__wilky__</a></li>
+                        <li>LinkedIn: <a href="https://www.linkedin.com/pub/vincenzo-ferrari/49/a40/538">Vincenzo Ferrari</a></li>
+                        <li>Stackoverflow: <a href="http://stackoverflow.com/users/916784/wilk">wilk</a></li>
+                        <li>Coderwall: <a href="https://coderwall.com/wilk">wilk</a></li>
+                    </ul>
                 </section>
             </section>
 
-            <section>
-                <h1>Statistics</h1>
-                <p>TODO: some statistics about Angular usage, community modules and google searches</p>
+            <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
+                <h1>Motivation</h1>
+                <ul>
+                    <li>Google</li>
+                    <li>Vast community</li>
+                    <li><a href="http://bower.io/search/?q=angular">bower.io/search/?q=angular</a> : <strong>3,050 matched results</strong></li>
+                    <li><a href="http://ngmodules.org/">ngmodules.org/</a> : <strong>1,051 registered modules</strong></li>
+                    <li><a href="http://stackoverflow.com/questions/tagged/angularjs">stackoverflow.com/questions/tagged/angularjs</a> : <strong>65,872 questions tagged</strong></li>
+                    <li><a href="https://google.com/#q=angularjs">google.com/#q=angularjs</a> : <strong>16,700,000 results</strong></li>
+                </ul>
+                <small style="margin-top: 40px;"><em>Last update : 29 November 2014</em></small>
             </section>
 
             <section>
@@ -1851,6 +1869,7 @@ function linkify( selector ) {
 
 				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
 				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+                backgroundTransition: 'slide',
 
 				// Parallax scrolling
 				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
