@@ -12,6 +12,7 @@ angular
         };
     }])
     .controller('DirectiveCtrl', ['$scope', function ($scope) {
+        $scope.value = 0;
         $scope.tools = ['AngularJS', 'Go Lang', 'Dart'];
         $scope.selection = $scope.tools[0];
 
@@ -92,7 +93,7 @@ angular
         };
 
         this.findLuigi = function () {
-            $http.get('/luigi')
+            $http.get('fixtures/Users.json')
                 .success(function (luigi) {
                     alert('I found you Luigi!');
                     $log.debug(luigi);
