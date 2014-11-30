@@ -131,6 +131,8 @@
             <section>
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
                     <h1>Angular Overview</h1>
+                    <img src="images/tcl/overvie.gif"/>
+                    <p style="margin-top: 25px;"><small><em><a href="http://thecodinglove.com/post/45748349769/when-the-library-has-a-very-good-documentation">thecodinglove.com</a></em></small></p>
                 </section>
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
@@ -163,6 +165,8 @@
             <section>
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
                     <h1>Template Engine</h1>
+                    <img src="images/tcl/engine.gif"/>
+                    <p style="margin-top: 25px;"><small><em><a href="http://thecodinglove.com/post/49177927389/when-i-launch-a-compilation-on-my-fresh-new">thecodinglove.com</a></em></small></p>
                 </section>
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
@@ -212,6 +216,14 @@
                     <h3>Code sample</h3>
                     <p>
                         <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+// index.html
+&lt;html ng-app="MyModule"&gt;
+    &lt;body ng-controller="MyCtrl"&gt;
+        &lt;input ng-model="text" type="text" /&gt;
+        &lt;label&gt;{{text}}&lt;/label&gt;
+        &lt;button ng-click="templateSubmit()"&gt;{{btnText}}&lt;/button&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
 // app.js
 angular.module('MyModule', [])
     .controller('MyCtrl', ['$scope', function ($scope) {
@@ -221,14 +233,6 @@ angular.module('MyModule', [])
             alert("text value is: " + $scope.text);
         };
 }]);
-// index.html
-&lt;html ng-app&gt;
-    &lt;body ng-controller="MyCtrl"&gt;
-        &lt;input ng-model="text" type="text" /&gt;
-        &lt;label&gt;{{text}}&lt;/label&gt;
-        &lt;button ng-click="templateSubmit()"&gt;{{btnText}}&lt;/button&gt;
-    &lt;/body&gt;
-&lt;/html&gt;
                         </code></pre>
                     </p>
                     <div ng-controller="TemplateCtrl">
@@ -242,6 +246,8 @@ angular.module('MyModule', [])
             <section>
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
                     <h1>Dependency Injection</h1>
+                    <img src="images/tcl/awesome.gif"/>
+                    <p style="margin-top: 25px;"><small><em><a href="http://thecodinglove.com/post/50431501710/when-marketing-announce-to-developers-what-they">thecodinglove.com</a></em></small></p>
                 </section>
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
@@ -297,6 +303,8 @@ angular.controller('MyCtrl', ['$scope', '$location', function ($scope, $location
             <section ng-controller="DirectiveCtrl">
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
                     <h1>Directives</h1>
+                    <img src="images/tcl/directives.gif"/>
+                    <p style="margin-top: 25px;"><small><em><a href="http://thecodinglove.com/post/95999979663/when-the-boss-is-angry-at-us">thecodinglove.com</a></em></small></p>
                 </section>
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
@@ -557,6 +565,8 @@ angular.directive('myClock', ['$interval', 'dateFilter', function ($interval, da
             <section ng-controller="FilterCtrl">
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
                     <h1>Filters</h1>
+                    <img src="images/tcl/filter.gif"/>
+                    <p style="margin-top: 25px;"><small><em><a href="http://thecodinglove.com/post/80977664309/when-i-criticize-my-boss-decision-who-is-right">thecodinglove.com</a></em></small></p>
                 </section>
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
@@ -1271,7 +1281,7 @@ angular.module('MyModule', ['ngRoute'])
             controller: 'RepoCtrl'
         });
     }])
-    .controller('MyCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
+    .controller('RepoCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
         $scope.username = $routeParams.username;
         $scope.reponame = $routeParams.reponame;
     }]);
@@ -1566,7 +1576,7 @@ $ phonegap run ios
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
                     <h1>Conclusion</h1>
                     <img src="images/tcl/conclusion.gif"/>
-                    <p style="margin-top: 25px;"><small><em><a href="http://thecodinglove.com/search/404http://thecodinglove.com/post/100165429729/when-i-prove-that-the-qa-team-was-wrong-about-bugs">thecodinglove.com</a></em></small></p>
+                    <p style="margin-top: 25px;"><small><em><a href="http://thecodinglove.com/post/100165429729/when-i-prove-that-the-qa-team-was-wrong-about-bugs">thecodinglove.com</a></em></small></p>
                 </section>
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
@@ -1583,7 +1593,13 @@ $ phonegap run ios
                 </section>
             </section>
 
-            <section>
+            <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
+                <h1>Thank you!</h1>
+                <img src="images/tcl/applauses.gif"/>
+                <p style="margin-top: 25px;"><small><em><a href="http://thecodinglove.com/post/82885878634/when-the-big-boss-congratulates-my-work">thecodinglove.com</a></em></small></p>
+            </section>
+
+            <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
                 <h1>Questions?</h1>
                 <img src="images/tcl/questions.gif"/>
                 <p style="margin-top: 25px;"><small><em><a href="http://thecodinglove.com/search/404">thecodinglove.com</a></em></small></p>
@@ -1600,8 +1616,12 @@ $ phonegap run ios
                 </ul>
             </section-->
 
-            <section>
+            <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
                 <h1>Credits</h1>
+                <ul>
+                    <li><a href="http://alicialiu.net/leveling-up-angular-talk">http://alicialiu.net/leveling-up-angular-talk</a></li>
+                    <li><a href="http://thecondiglove.com/">thecondiglove.com</a></li>
+                </ul>
             </section>
 
 
