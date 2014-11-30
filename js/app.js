@@ -118,4 +118,14 @@ angular
             if (value && value.length > 0) return result.join(' ');
             else return '';
         };
+    }])
+    .directive('myClock', ['$interval', 'dateFilter', function ($interval, dateFilter) {
+        return {
+            restrict: 'E',
+            link: function (scope, element, attrs) {
+                $interval(function () {
+                    element.text(dateFilter(new Date(), 'H:mm:ss'));
+                }, 1000);
+            }
+        };
     }]);
