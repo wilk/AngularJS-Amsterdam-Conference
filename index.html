@@ -49,6 +49,7 @@
 
             <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
                 <h1>AngularJS</h1>
+                    <img src="images/mario.gif" style="background: transparent; box-shadow: none; border: none;"/>
             </section>
 
             <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
@@ -68,8 +69,8 @@
                     <h3>Vincenzo Ferrari <span class="fragment"> >> Wilk</span></h3>
                     <div class="fragment"><img src="images/tcl/not-working.gif"></div>
                     <ul>
-                        <li class="fragment">Software Engineer at <a href="ibuildings.it">Ibuildings Italia</a></li>
                         <li class="fragment">Fullstack Web Developer</li>
+                        <li class="fragment">Software Engineer at <a href="ibuildings.it">Ibuildings Italia</a></li>
                         <li class="fragment">Open Source Supporter</li>
                     </ul>
                 </section>
@@ -117,7 +118,7 @@
                     <li class="fragment">Directives</li>
                     <li class="fragment">Filters</li>
                     <li class="fragment">Services</li>
-                    <li class="fragment">Data Validation</li>
+                    <!--li class="fragment">Data Validation</li-->
                     <li class="fragment">Modularity</li>
                     <li class="fragment">Routing</li>
                     <li class="fragment">Testing</li>
@@ -174,8 +175,11 @@
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
                     <h3>How does it work?</h3>
-                    <p>Angular combines the template with information coming from the model and the controller to render the dynamic view that a user sees in the browser.</p>
-                    <p>The <em>$compile</em> service is used to <strong>compile</strong> the DOM and <strong>link</strong> it with the <em>$rootScope</em></p>
+                    <p>The template engine works in two phases:</p>
+                    <ul>
+                        <li class="fragment">Compile phase</li>
+                        <li class="fragment">Link phase</li>
+                    </ul>
                 </section>
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
@@ -199,10 +203,10 @@
                     </ul>
                 </section>
 
-                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
+                <!--section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
                     <h3>Views</h3>
                     <p>It's possible to split the application template in different views, called <strong>partials</strong>. Those views are stored in HTML files.</p>
-                </section>
+                </section-->
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
                     <h3>Code sample</h3>
@@ -313,6 +317,7 @@ angular.controller('MyCtrl', ['$scope', '$location', function ($scope, $location
                         <li>ngClick</li>
                         <li>ngView</li>
                     </ul>
+                    <p style="margin-top: 10px;"><small><a href="https://docs.angularjs.org/api/ng/directive">https://docs.angularjs.org/api/ng/directive</a></small></p>
                     <p>Built-in directives are identified by the <strong>ng</strong> namespace.</p>
                 </section>
 
@@ -468,7 +473,7 @@ angular.controller('MyCtrl', ['$scope', '$location', function ($scope, $location
                     </p>
                 </section>
 
-                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
+                <!--section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
                     <h3>Configuration</h3>
                     <p>A directive must return a configuration object with the following options:</p>
                     <ul>
@@ -486,7 +491,7 @@ angular.controller('MyCtrl', ['$scope', '$location', function ($scope, $location
                     </ul>
                 </section>
 
-                <!--section>
+                <section>
                     <h3>The link function</h3>
                     <p>The link function is responsible for registering DOM listeners as well as updating the DOM. It is executed after the template has been cloned.</p>
                     <p>It comes with the following signature:</p>
@@ -533,8 +538,19 @@ function link(scope, iElement, iAttrs, controller, transcludeFn) { ... }
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
                     <h3>Code sample</h3>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-                        // TODO: make an example of a custom directive
+angular.directive('myClock', ['$interval', 'dateFilter', function ($interval, dateFilter) {
+    return {
+        restrict: 'E',
+        link: function (scope, element, attrs) {
+            $interval(function () {
+                element.text(dateFilter(new Date(), 'H:mm:ss'));
+            }, 1000);
+        }
+    };
+}]);
+&lt;my-clock&gt;&lt;/my-clock&gt;
                     </code></pre>
+                    <my-clock></my-clock>
                 </section>
             </section>
 
@@ -563,7 +579,7 @@ function link(scope, iElement, iAttrs, controller, transcludeFn) { ... }
                         <li class="fragment">number</li>
                         <li class="fragment">orderBy</li>
                     </ul>
-                    <p class="fragment" style="margin-top: 10px;"><small><a href="https://docs.angularjs.org/api/ng/filter">https://docs.angularjs.org/api/ng/filter</a></small></p>
+                    <p class="fragment" style="margin-top: 10px;"><small><em><a href="https://docs.angularjs.org/api/ng/filter">https://docs.angularjs.org/api/ng/filter</a></em></small></p>
                 </section>
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
@@ -602,9 +618,9 @@ angular.controller('MyCtrl', ['dateFilter', function(dateFilter) {
                         <p><strong>Currency</strong></p>
                         <p><small>Formats a number as a currency.</small></p>
                         <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-    {{amount | currency:'€':2}} or currencyFilter(amount, '€', 2);
-    {{amount | currency:'$':2}} or currencyFilter(amount, '$', 2);
-    {{amount | currency:'£':2}} or currencyFilter(amount, '£', 2);
+{{amount | currency:'€':2}} or currencyFilter(amount, '€', 2);
+{{amount | currency:'$':2}} or currencyFilter(amount, '$', 2);
+{{amount | currency:'£':2}} or currencyFilter(amount, '£', 2);
                         </code></pre>
                         <div>
                             <input type="number" ng-model="amount"/>
@@ -618,11 +634,11 @@ angular.controller('MyCtrl', ['dateFilter', function(dateFilter) {
                         <p><strong>Date</strong></p>
                         <p><small>Formats date to a string based on the requested format.</small></p>
                         <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-{{today | date:'d/M/yyyy'}} or dateFilter(today, 'd/M/yyyy');
+{{today | date:'M/d/yyyy'}} or dateFilter(today, 'M/d/yyyy');
                         </code></pre>
                         <div>
                             <input type="date" ng-model="today"/>
-                            <small style="margin: 16px 0 0 10px; width: 50px;">[[today | date:'d/M/yyyy']]</small>
+                            <small style="margin: 16px 0 0 10px; width: 50px;">[[today | date:'M/d/yyyy']]</small>
                         </div>
                     </div>
                 </section>
@@ -707,6 +723,7 @@ angular.filter('star', ['uppercaseFilter', function (uppercaseFilter) {
                     <p>
                         Angular services are substitutable objects that are wired together using dependency injection (DI). You can use services to organize and share code across your app.
                     </p>
+                    <!--div>
                     <p>Angular services are:</p>
                     <ul>
                         <li class="fragment"><strong>Lazily instantiated</strong> – Angular only instantiates a service when an application component depends on it.</li>
@@ -715,6 +732,7 @@ angular.filter('star', ['uppercaseFilter', function (uppercaseFilter) {
                     <p class="fragment">
                         Angular offers several useful services (like $http), but for most applications you'll also want to create your own.
                     </p>
+                    </div-->
                 </section>
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
@@ -803,7 +821,7 @@ angular.controller('MyCtrl', ['$http', '$scope', function ($http, $scope) {
                     </div>
                 </section>
 
-                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
+                <!--section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
                     <h3>Built-in services in detail - 3</h3>
                     <p><strong>$httpBackend</strong></p>
                     <p><small>Fake HTTP backend implementation suitable for end-to-end testing or backend-less development of applications that use the $http service.</small></p>
@@ -820,10 +838,10 @@ angular.run(['$httpBackend', '$http', function ($httpBackend, $http) {
         .error(function (err) {});
 }]);
                     </code></pre>
-                </section>
+                </section-->
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
-                    <h3>Built-in services in detail - 4</h3>
+                    <h3>Built-in services in detail - 3</h3>
                     <p><strong>$location</strong></p>
                     <p><small>The $location service parses the URL in the browser address bar (based on the window.location) and makes the URL available to your application. Changes to the URL in the address bar are reflected into $location service and changes to $location are reflected into the browser address bar.</small></p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
@@ -1058,48 +1076,6 @@ angular.module('MyApp', ['MyModule.values'])
             </section>
 
             <section>
-                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
-                    <h1>Routing</h1>
-                    <img src="images/tcl/routing.gif"/>
-                    <p style="margin-top: 25px;"><small><em><a href="http://thecodinglove.com/post/56767795302/going-to-work-on-monday-morning">thecodinglove.com</a></em></small></p>
-                </section>
-
-                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
-                    <h3>Client-side routing</h3>
-                    <p>
-                        Single page web applications need client-side routing because they communicate with the server with AJAX/WebSocket protocols instead of refreshing the entire page.
-                    </p>
-                    <p>
-                        Angular provides a set of spectacular features.
-                    </p>
-                </section>
-
-                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
-                    <h3>Routing w/ templating</h3>
-                    <p>
-                        The ngRoute module provides routing and deeplinking services and directives for angular apps.
-                        The $routeProvider is used to configure the routing table: each view can be attached to a route, combined with the ngView directive.
-                    </p>
-                </section>
-
-                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
-                    <h3>Code sample</h3>
-                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-angular.module('MyModule', ['ngRoute'])
-    .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/', {
-            templateUrl: 'views/mario.html',
-            controller: 'MarioCtrl'
-        })
-        .otherwise ({
-            redirectTo: '/404'
-        });
-    }]);
-                    </code></pre>
-                </section>
-            </section>
-
-            <section>
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
                     <h1>Testing</h1>
                     <img src="images/tcl/testing.gif"/>
@@ -1118,12 +1094,12 @@ angular.module('MyModule', ['ngRoute'])
                     </ul>
                 </section>
 
-                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
+                <!--section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
                     <h3>E2E or Unit Test?</h3>
                     <p>
                         As applications grow in size and complexity, it becomes unrealistic to rely on manual testing to verify the correctness of new features, catch bugs and notice regressions. Unit tests are the first line of defense for catching bugs, but sometimes issues come up with integration between components which can't be captured in a unit test. End to end tests are made to find these problems.
                     </p>
-                </section>
+                </section-->
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
                     <h3>Jasmine (Unit Test)</h3>
@@ -1178,6 +1154,7 @@ describe('Users Table', function () {
             <section>
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
                     <h1>ngResource</h1>
+                    <p><a href="https://docs.angularjs.org/api/ngResource">https://docs.angularjs.org/api/ngResource</a></p>
                 </section>
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
@@ -1185,7 +1162,7 @@ describe('Users Table', function () {
                     <p>The ngResource module provides interaction support with RESTful services via the $resource service and $resourceProvider.</p>
                 </section>
 
-                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
+                <!--section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
                     <h3>$resource service</h3>
                     <p>A factory which creates a resource object that lets you interact with RESTful server-side data sources.</p>
                     <p>When a new $resource is created, it's expected to pass the following parameters to the constructor:</p>
@@ -1194,7 +1171,7 @@ describe('Users Table', function () {
                         <li>(Object) paramDefaults: a key-value map representing default parameters that will be attached to each call in the query string</li>
                         <li>(Object) actions: Hash with declaration of custom action. Each action will be reflected as a resource method and it will have its custom HTTP method, url and params.</li>
                     </ul>
-                </section>
+                </section-->
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
                     <h3>Code sample</h3>
@@ -1228,6 +1205,17 @@ angular.module('MyModule', ['ngResource'])
             <section>
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
                     <h1>ngRoute</h1>
+                    <p><a href="https://docs.angularjs.org/api/ngRoute">https://docs.angularjs.org/api/ngRoute</a></p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
+                    <h3>Client-side routing</h3>
+                    <p>
+                        Single page web applications need client-side routing because they communicate with the server with AJAX/WebSocket protocols instead of refreshing the entire page.
+                    </p>
+                    <p>
+                        Angular provides a set of spectacular features.
+                    </p>
                 </section>
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
@@ -1237,15 +1225,15 @@ angular.module('MyModule', ['ngResource'])
                         It's mainly composed of:
                     </p>
                     <ul>
-                        <li>ngView: directive</li>
-                        <li>$routeProvider: provider</li>
-                        <li>$route: service</li>
-                        <li>$routeParams: service</li>
+                        <li class="fragment">ngView: directive</li>
+                        <li class="fragment">$routeProvider: provider</li>
+                        <li class="fragment">$route: service</li>
+                        <li class="fragment">$routeParams: service</li>
                     </ul>
-                    <p>The idea is to use the $routeProvider initially, combined with the ngView directive to load the route template associated and then to use the $route/$routeParams service to get params.</p>
+                    <p class="fragment" style="margin-top: 25px;">The idea is to use the $routeProvider initially, combined with the ngView directive to load the route template associated and then to use the $route/$routeParams service to get params.</p>
                 </section>
 
-                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
+                <!--section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
                     <h3>$routeProvider</h3>
                     <p>
                         This provider is used to configure the routing table of your application.
@@ -1259,7 +1247,7 @@ angular.module('MyModule', ['ngResource'])
                         <li>resolve: An optional map of dependencies which should be injected into the controller.</li>
                         <li>redirectTo: a string defining the route to redirect</li>
                     </ul>
-                </section>
+                </section-->
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
                     <h3>$routeParams</h3>
@@ -1304,7 +1292,8 @@ angular.module('MyModule', ['ngRoute'])
 
             <section>
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
-                    <h1>ngCookie</h1>
+                    <h1>ngCookies</h1>
+                    <p><a href="https://docs.angularjs.org/api/ngCookies">https://docs.angularjs.org/api/ngCookies</a></p>
                 </section>
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
@@ -1357,11 +1346,11 @@ angular.module('MyModule', ['ngCookies'])
                     <h3>Chemical Composition</h3>
                     <p>Angular-UI is a tool suite that comes with a set of libraries for Angular:</p>
                     <ul>
-                        <li>UI Utils</li>
-                        <li>UI Modules</li>
-                        <li>UI Bootstrap</li>
-                        <li>NG Grid</li>
-                        <li>UI Router</li>
+                        <li class="fragment">UI Utils</li>
+                        <li class="fragment">UI Modules</li>
+                        <li class="fragment">UI Bootstrap</li>
+                        <li class="fragment">NG Grid</li>
+                        <li class="fragment">UI Router</li>
                     </ul>
                 </section>
 
@@ -1371,11 +1360,11 @@ angular.module('MyModule', ['ngCookies'])
                     <p>A utility package with no external dependencies: each module is contained in this package but can be included individually.</p>
                     <p>Some common modules:</p>
                     <ul>
-                        <li>Event Binder</li>
-                        <li>Keypress</li>
-                        <li>Mask</li>
-                        <li>Scrollfix</li>
-                        <li>Show / Hide / Toggle</li>
+                        <li class="fragment">Event Binder</li>
+                        <li class="fragment">Keypress</li>
+                        <li class="fragment">Mask</li>
+                        <li class="fragment">Scrollfix</li>
+                        <li class="fragment">Show / Hide / Toggle</li>
                     </ul>
                 </section>
 
@@ -1383,11 +1372,10 @@ angular.module('MyModule', ['ngCookies'])
                     <h3>UI Modules</h3>
                     <p>Standalone AngularUI modules with external dependencies:</p>
                     <ul>
-                        <li>ui-ace: Ace IDE module</li>
-                        <li>ui-calendar: web calendar view module</li>
-                        <li>ui-map: Google Maps module</li>
-                        <li>ui-ace: module for Ace IDE</li>
-                        <li>ui-ace: module for Ace IDE</li>
+                        <li class="fragment">ui-ace: Ace IDE module</li>
+                        <li class="fragment">ui-calendar: web calendar view module</li>
+                        <li class="fragment">ui-map: Google Maps module</li>
+                        <li class="fragment">ui-date: module for a date picker</li>
                     </ul>
                 </section>
 
@@ -1427,12 +1415,12 @@ angular.module('MyModule', ['ui.grid'])
                     </code></pre>
                 </section>
 
-                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
+                <!--section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
                     <h3>UI Router</h3>
                     <p><a href="http://angular-ui.github.io/ui-router/site/#/api/ui.router">http://angular-ui.github.io/ui-router/site/#/api/ui.router</a></p>
                     <p>Nested Routing for AngularJS. It comes with a set of submodule to use in your application.</p>
                     <p>TODO: to finish</p>
-                </section>
+                </section-->
             </section>
 
             <section>
@@ -1444,17 +1432,12 @@ angular.module('MyModule', ['ui.grid'])
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
                     <h3>What is it?</h3>
                     <p>Restangular is an AngularJS service that simplifies common GET, POST, DELETE, and UPDATE requests with a minimum of client code. It's a perfect fit for any WebApp that consumes data from a RESTful API.</p>
-                    <p>It provides the following features:</p>
+                    <p class="fragment">It provides the following features:</p>
                     <ul>
-                        <li>promises</li>
-                        <li>all HTTP methods</li>
-                        <li>easy way to build custom REST APIs</li>
+                        <li class="fragment">promises</li>
+                        <li class="fragment">all HTTP methods</li>
+                        <li class="fragment">easy way to build custom REST APIs</li>
                     </ul>
-                </section>
-
-                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
-                    <h3>Restangular vs ngResource vs $http</h3>
-                    <p></p>
                 </section>
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
@@ -1463,12 +1446,14 @@ angular.module('MyModule', ['ui.grid'])
 angular.module('MyModule', ['restangular'])
     .controller('MyCtrl', ['$scope', 'Restangular', function ($scope, Restangular) {
         var mushroomsEntity = Restangular.all('mushrooms');
+        // GET /mushrooms
         mushroomsEntity.getList().then(function (mushrooms) {
             $scope.mushrooms = mushrooms;
         });
         // or
         $scope.mushrooms = mushroomsEntity.getList().$object;
 
+        // POST /mushrooms {color: 'brown'}
         mushroomsEntity.post({color: 'brown'});
     }]);
                     </code></pre>
@@ -1494,9 +1479,9 @@ angular.module('MyModule', ['restangular'])
                     <h3>What is it composed of?</h3>
                     <p>It's composed of:</p>
                     <ul>
-                        <li>AngularJS: the Javascript part is satisfied by Angular</li>
-                        <li>CSS/SASS: a set of CSS/SASS classes that can be overridden by new ones</li>
-                        <li>Ionic Client: a tool built with NodeJS that helps you with your project</li>
+                        <li class="fragment">AngularJS: the Javascript part is satisfied by Angular</li>
+                        <li class="fragment">CSS/SASS: a set of CSS/SASS classes that can be overridden by new ones</li>
+                        <li class="fragment">Ionic Client: a tool built with NodeJS that helps you with your project</li>
                     </ul>
                 </section>
 
@@ -1504,14 +1489,14 @@ angular.module('MyModule', ['restangular'])
                     <h3>Components</h3>
                     <p>Ionic comes with serveral useful components:</p>
                     <ul>
-                        <li>header and footer bars</li>
-                        <li>buttons (with icons)</li>
-                        <li>lists</li>
-                        <li>cards</li>
-                        <li>forms</li>
-                        <li>HTML5 input types</li>
-                        <li>tab panels</li>
-                        <li>grids</li>
+                        <li class="fragment">header and footer bars</li>
+                        <li class="fragment">buttons (with icons)</li>
+                        <li class="fragment">lists</li>
+                        <li class="fragment">cards</li>
+                        <li class="fragment">forms</li>
+                        <li class="fragment">HTML5 input types</li>
+                        <li class="fragment">tab panels</li>
+                        <li class="fragment">grids</li>
                     </ul>
                 </section>
 
@@ -1519,12 +1504,12 @@ angular.module('MyModule', ['restangular'])
                     <h3>Features</h3>
                     <p>CSS components are not the only important thing. Ionic has got lots of Javascript features:</p>
                     <ul>
-                        <li>action sheet</li>
-                        <li>events</li>
-                        <li>lists</li>
-                        <li>gestures</li>
-                        <li>navigation</li>
-                        <li>utility</li>
+                        <li class="fragment">action sheet</li>
+                        <li class="fragment">events</li>
+                        <li class="fragment">lists</li>
+                        <li class="fragment">gestures</li>
+                        <li class="fragment">navigation</li>
+                        <li class="fragment">utility</li>
                     </ul>
                 </section>
 
@@ -1557,9 +1542,9 @@ $ ionic emulate android
                     <h3>What is it composed of?</h3>
                     <p>It's composed of:</p>
                     <ul>
-                        <li>AngularJS</li>
-                        <li>Twitter Bootstrap</li>
-                        <li>PhoneGap</li>
+                        <li class="fragment">AngularJS</li>
+                        <li class="fragment">Twitter Bootstrap</li>
+                        <li class="fragment">PhoneGap</li>
                     </ul>
                 </section>
 
@@ -1578,13 +1563,24 @@ $ phonegap run ios
             </section>
 
             <section>
-                <h1>Useful Refs</h1>
-            </section>
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
+                    <h1>Conclusion</h1>
+                    <img src="images/tcl/conclusion.gif"/>
+                    <p style="margin-top: 25px;"><small><em><a href="http://thecodinglove.com/search/404http://thecodinglove.com/post/100165429729/when-i-prove-that-the-qa-team-was-wrong-about-bugs">thecodinglove.com</a></em></small></p>
+                </section>
 
-            <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
-                <h1>Conclusion</h1>
-                <img src="images/tcl/conclusion.gif"/>
-                <p style="margin-top: 25px;"><small><em><a href="http://thecodinglove.com/search/404http://thecodinglove.com/post/100165429729/when-i-prove-that-the-qa-team-was-wrong-about-bugs">thecodinglove.com</a></em></small></p>
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
+                    <h3>Why Angular?</h3>
+                    <ul>
+                        <li class="fragment">Open Source</li>
+                        <li class="fragment">Highly Modular</li>
+                        <li class="fragment">Top for Single Page Web Application</li>
+                        <li class="fragment">Multi Pattern</li>
+                        <li class="fragment">Lots of Docs</li>
+                        <li class="fragment">Lots of Modules</li>
+                        <li class="fragment">Pure Javascript</li>
+                    </ul>
+                </section>
             </section>
 
             <section>
@@ -1592,6 +1588,17 @@ $ phonegap run ios
                 <img src="images/tcl/questions.gif"/>
                 <p style="margin-top: 25px;"><small><em><a href="http://thecodinglove.com/search/404">thecodinglove.com</a></em></small></p>
             </section>
+
+            <!--section>
+                <h1>Useful Refs</h1>
+                <ul>
+                    <li class="fragment"><a href="https://github.com/toddmotto/angularjs-styleguide">Todd Motto AngularJS Style Guide</a></li>
+                    <li class="fragment"></li>
+                    <li class="fragment"></li>
+                    <li class="fragment"></li>
+                    <li class="fragment"></li>
+                </ul>
+            </section-->
 
             <section>
                 <h1>Credits</h1>
