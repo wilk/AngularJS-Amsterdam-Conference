@@ -1,0 +1,1986 @@
+<!doctype html>
+<html lang="en" ng-app="AmsterdamConf">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>AngularJS - Amsterdam Conference</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+        <link rel="stylesheet" href="css/app.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+        <script src="lib/js/angular.js"></script>
+        <script src="js/app.js"></script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+            <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
+                <h1>AngularJS</h1>
+                    <img src="images/mario.gif" style="background: transparent; box-shadow: none; border: none;"/>
+            </section>
+
+            <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
+                <h1>Thanks!</h1>
+                <div class="fragment">
+                    <div><img src="images/tcl/thanks.gif"/></div>
+                    <small><em><a href="http://thecodinglove.com/post/93874463894/when-the-client-tells-us-he-wants-a-website">thecodinglove.com</a></em></small>
+                </div>
+            </section>
+
+            <section>
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
+                    <h1>$ whoami</h1>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
+                    <h3>Vincenzo Ferrari <span class="fragment"> >> Wilk</span></h3>
+                    <div class="fragment"><img src="images/tcl/not-working.gif"></div>
+                    <ul>
+                        <li class="fragment">Fullstack Web Developer</li>
+                        <li class="fragment">Software Engineer at <a href="ibuildings.it">Ibuildings Italia</a></li>
+                        <li class="fragment">Open Source Supporter</li>
+                    </ul>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
+                    <h3>Github</h3>
+                    <img style="width: 650px;" src="images/github.png"/>
+                    <p><a href="https://github.com/wilk">https://github.com/wilk</a></p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
+                    <h3>Contacts</h3>
+                    <ul>
+                        <li class="fragment">Google+: <a href="https://plus.google.com/u/0/+VincenzoFerrari/">+VincenzoFerrari</a></li>
+                        <li class="fragment">Twitter: <a href="https://www.twitter.com/__wilky__">@__wilky__</a></li>
+                        <li class="fragment">LinkedIn: <a href="https://www.linkedin.com/pub/vincenzo-ferrari/49/a40/538">Vincenzo Ferrari</a></li>
+                        <li class="fragment">Stackoverflow: <a href="http://stackoverflow.com/users/916784/wilk">wilk</a></li>
+                        <li class="fragment">Coderwall: <a href="https://coderwall.com/wilk">wilk</a></li>
+                    </ul>
+                    <div class="fragment">
+                        <div><img src="images/tcl/everywhere.gif"/></div>
+                        <small><em><a href="http://thecodinglove.com/post/45106856903/when-the-client-asks-us-to-create-a-social">thecodinglove.com</a></em></small>
+                    </div>
+                </section>
+            </section>
+
+            <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
+                <h1>Motivation</h1>
+                <ul>
+                    <li class="fragment">Google</li>
+                    <li class="fragment">Vast community</li>
+                    <li class="fragment"><a href="http://bower.io/search/?q=angular">bower.io/search/?q=angular</a> : <strong>3,050 matched results</strong></li>
+                    <li class="fragment"><a href="http://ngmodules.org/">ngmodules.org/</a> : <strong>1,051 registered modules</strong></li>
+                    <li class="fragment"><a href="http://stackoverflow.com/questions/tagged/angularjs">stackoverflow.com/questions/tagged/angularjs</a> : <strong>65,872 questions tagged</strong></li>
+                    <li class="fragment"><a href="https://google.com/#q=angularjs">google.com/#q=angularjs</a> : <strong>16,700,000 results</strong></li>
+                </ul>
+                <small class="fragment" style="margin-top: 40px;"><em>Last update : 29 November 2014</em></small>
+            </section>
+
+            <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
+                <h1>Index</h1>
+                <ul>
+                    <li class="fragment">Template Engine</li>
+                    <li class="fragment">Dependency Injection</li>
+                    <li class="fragment">Directives</li>
+                    <li class="fragment">Filters</li>
+                    <li class="fragment">Services</li>
+                    <!--li class="fragment">Data Validation</li-->
+                    <li class="fragment">Modularity</li>
+                    <li class="fragment">Routing</li>
+                    <li class="fragment">Testing</li>
+                    <li class="fragment">Useful Modules</li>
+                    <li class="fragment">Libraries</li>
+                    <li class="fragment">Frameworks</li>
+                </ul>
+            </section>
+
+            <section>
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
+                    <h1>Angular Overview</h1>
+                    <img src="images/tcl/overvie.gif"/>
+                    <p style="margin-top: 25px;"><small><em><a href="http://thecodinglove.com/post/45748349769/when-the-library-has-a-very-good-documentation">thecodinglove.com</a></em></small></p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
+                    <h3>How does it work?</h3>
+                    <div class="fragment">
+                        <p>Magic!</p>
+                        <div><img src="images/tcl/magic.gif"/></div>
+                        <small><em><a href="http://thecodinglove.com/post/41360804381/when-i-discovered-regular-expressions">thecodinglove.com</a></em></small>
+                    </div>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
+                    <h3>Bootstrapping</h3>
+                    <img src="images/concepts-startup.png"/>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
+                    <h3>One to Two-Way Data-Binding</h3>
+                    <div class="fragment" style="float: left;">
+                        <p>Static DOM</p>
+                        <div><img src="images/One_Way_Data_Binding.png"/></div>
+                    </div>
+                    <div class="fragment">
+                        <p>Dynamic DOM</p>
+                        <div><img src="images/Two_Way_Data_Binding.png"/></div>
+                    </div>
+                </section>
+            </section>
+
+            <section>
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
+                    <h1>Template Engine</h1>
+                    <img src="images/tcl/engine.gif"/>
+                    <p style="margin-top: 25px;"><small><em><a href="http://thecodinglove.com/post/49177927389/when-i-launch-a-compilation-on-my-fresh-new">thecodinglove.com</a></em></small></p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
+                    <h3>Why does Angular have a template engine?</h3>
+                    <p>
+                        RESTful single page web applications need to compile and render their markup.
+                        This means that only raw data is sent/received to/from the network.
+                    </p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
+                    <h3>How does it work?</h3>
+                    <p>The template engine works in two phases:</p>
+                    <ul>
+                        <li class="fragment">Compile phase</li>
+                        <li class="fragment">Link phase</li>
+                    </ul>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
+                    <h3>Compile Phase</h3>
+                    <p>The compiler (<strong>$compile</strong>) traverses the DOM and collects all of the directives. The result is a linking function</p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
+                    <h3>Link Phase</h3>
+                    <p>It combines the directives with a scope and produces a live view. Any changes in the scope model are reflected in the view, and any user interactions with the view are reflected in the scope model. This makes the scope model the single source of truth</p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
+                    <h3>Template Composition</h3>
+                    <p>The template engine supports the following AngularJS elements and attributes:</p>
+                    <ul>
+                        <li class="fragment">Directives</li>
+                        <li class="fragment">Expressions</li>
+                        <li class="fragment">Filters</li>
+                        <li class="fragment">Form controls</li>
+                    </ul>
+                </section>
+
+                <!--section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
+                    <h3>Views</h3>
+                    <p>It's possible to split the application template in different views, called <strong>partials</strong>. Those views are stored in HTML files.</p>
+                </section-->
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
+                    <h3>Code sample</h3>
+                    <p>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+// index.html
+&lt;html ng-app="MyModule"&gt;
+    &lt;body ng-controller="MyCtrl"&gt;
+        &lt;input ng-model="text" type="text" /&gt;
+        &lt;label&gt;{{text}}&lt;/label&gt;
+        &lt;button ng-click="templateSubmit()"&gt;{{btnText}}&lt;/button&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+// app.js
+angular.module('MyModule', [])
+    .controller('MyCtrl', ['$scope', function ($scope) {
+        $scope.text = '';
+        $scope.btnText = 'Submit';
+        $scope.templateSubmit = function () {
+            alert("text value is: " + $scope.text);
+        };
+}]);
+                        </code></pre>
+                    </p>
+                    <div ng-controller="TemplateCtrl">
+                        <p><input ng-model="text" type="text"/>
+                            <small style="margin: 17px 25px 0 25px;">[[text]]</small>
+                            <button ng-click="templateSubmit()">Submit</button></p>
+                    </div>
+                </section>
+            </section>
+
+            <section>
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
+                    <h1>Dependency Injection</h1>
+                    <img src="images/tcl/awesome.gif"/>
+                    <p style="margin-top: 25px;"><small><em><a href="http://thecodinglove.com/post/50431501710/when-marketing-announce-to-developers-what-they">thecodinglove.com</a></em></small></p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
+                    <h3>What's DI?</h3>
+                    <p>
+                        Dependency Injection (DI) is a software design pattern that deals with how components get hold of their dependencies.
+
+                        The Angular injector subsystem is in charge of creating components, resolving their dependencies, and providing them to other components as requested.
+                    </p>
+                </section>
+
+                <!--section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
+                    <h3>Why do we need DI into our application?</h3>
+                    <p>It's useful to have each component declaring its dependencies and then get them injected into it by Angular.</p>
+                    <p>It's possible to inject constants, values, functions and objects.</p>
+                </section>
+
+                <section>
+                    <h3>Best practices</h3>
+                    <p>Controllers, services, directives, filters and animations can be injected with value and service components.</p>
+                    <p><em>angular.run</em> method can be injected with service, value and constant components.</p>
+                    <p><em>angular.config</em> method can be injected with provider and constant.</p>
+                </section-->
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
+                    <h3>Dependencies</h3>
+                    <p>AngularJS lets you to inject various types of dependencies:</p>
+                    <ul>
+                        <li class="fragment">Angular built-in dependencies</li>
+                        <li class="fragment">Vendor dependencies</li>
+                        <li class="fragment">Personal dependencies</li>
+                    </ul>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
+                    <h3>Code sample</h3>
+                    <p>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.run(['$http', function ($http) {
+    // do something with $http service
+}]);
+angular.config(['$httpProvider', function ($httpProvider) {
+    // do something with $httpProvider provider
+}]);
+angular.controller('MyCtrl', ['$scope', '$location', function ($scope, $location) {
+    // do something with $scope and $location services
+}]);
+                        </code></pre>
+                    </p>
+                </section>
+            </section>
+
+            <section ng-controller="DirectiveCtrl">
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
+                    <h1>Directives</h1>
+                    <img src="images/tcl/directives.gif"/>
+                    <p style="margin-top: 25px;"><small><em><a href="http://thecodinglove.com/post/95999979663/when-the-boss-is-angry-at-us">thecodinglove.com</a></em></small></p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
+                    <h3>What is a directive?</h3>
+                    <p>
+                        Directives are markers on a DOM element (such as an attribute, element name, comment or CSS class) that tell AngularJS's HTML compiler ($compile) to attach a specified behavior to that DOM element or even transform the DOM element and its children.
+                    </p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
+                    <h3>Built-in directives</h3>
+                    <p>Angular comes with several useful built-in directives, such as:</p>
+                    <ul>
+                        <li>ngApp</li>
+                        <li>ngController</li>
+                        <li>ngModel</li>
+                        <li>ngRepeat</li>
+                        <li>ngClick</li>
+                        <li>ngView</li>
+                    </ul>
+                    <p style="margin-top: 10px;"><small><a href="https://docs.angularjs.org/api/ng/directive">https://docs.angularjs.org/api/ng/directive</a></small></p>
+                    <p>Built-in directives are identified by the <strong>ng</strong> namespace.</p>
+                </section>
+
+                <!--section>
+                    <h3>Built-in directives in detail - 1</h3>
+                    <p><strong>ngApp</strong></p>
+                    <p><small>The ngApp directive designates the root element of the application and is typically placed near the root element of the page. It auto-bootstraps the Angular application.</small></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+&lt;!doctype html&gt;
+&lt;html ng-app="MyApp"&gt;
+    &lt;head&gt;
+        ...
+    &lt;/head&gt;
+&lt;/html&gt;
+                    </code></pre>
+                    <p><strong>ngController</strong></p>
+                    <p><small>The ngController directive attaches a controller class to the view by creating a new scope.</small></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+&lt;div ng-controller="MyController"&gt;
+    Controller scope: {{something}}
+&lt;/div&gt;
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Built-in directives in detail - 2</h3>
+                    <p><strong>ngCloack</strong></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+&lt;div ng-cloack&gt;Hello World&lt;/div&gt;
+                    </code></pre>
+                    <p><strong>ngHide | ngShow</strong></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+&lt;div ng-hide="value"&gt;I'm hidden if value is truthy, visible otherwise&lt;/div&gt;
+&lt;div ng-show="value"&gt;I'm visible if value is truthy, hidden otherwise&lt;/div&gt;
+                    </code></pre>
+                    <p><strong>ngHref | ngSrc</strong></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+&lt;a ng-href="http://www.gravatar.com/avatar/{{hash}}"&gt;link&lt;/a&gt;
+&lt;img ng-src="http://www.gravatar.com/avatar/{{hash}}"/&gt;
+                    </code></pre>
+                </section-->
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
+                    <h3>Built-in directives in detail - 1</h3>
+                    <p><strong>ngClick | ngDblclick | ngInit</strong></p>
+                    <p><small>ngClick and ngDblclick attach a listener on click and dblclick event of the element, while ngInit is used to initialize a variable in the current scope.</small></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+&lt;button ng-click="aCount = aCount + 1" ng-init="aCount = 10"&gt;Click me&lt;button&gt;
+&lt;button ng-dblclick="count = count + 1" ng-init="count = 0"&gt;Double click me&lt;button&gt;
+                    </code></pre>
+
+                    <div>
+                        <button style="width: 110px;" ng-click="singleCount = singleCount + 1" ng-init="singleCount = 10">Click me</button>
+                        <small style="margin: 16px 0 0 10px; width: 50px;">[[singleCount]]</small>
+                    </div>
+                    <div>
+                        <button style="width: 110px;" ng-dblclick="count = count + 1" ng-init="count = 0">Double click me</button>
+                        <small style="margin: 16px 0 0 10px; width: 50px;">[[count]]</small>
+                    </div>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
+                    <h3>Built-in directives in detail - 2</h3>
+                    <p><strong>ngIf | ngSwitch</strong></p>
+                    <p><small>Some directives change the DOM structure based on a scope expression. ngIf removes or recreates a part of the DOM depending on the evaluation of the expression,
+                    while the ngSwitch conditionally swap the DOM structure.</small></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+&lt;input type="number" ng-model="value"/&gt;
+&lt;small ng-if="value >= 0"&gt;Positive&lt;/small&gt;
+                    </code></pre>
+                    <div>
+                        <input style="width: 110px;" type="number" ng-model="value"/>
+                        <small style="margin: 16px 0 0 10px; width: 50px;" ng-if="value >= 0">Positive</small>
+                    </div>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+&lt;div ng-switch="selection"&gt;
+    &lt;div ng-switch-when="Go Lang"&gt;Go Lang&lt;/div&gt;
+    &lt;div ng-switch-when="Dart"&gt;Dart&lt;/div&gt;
+    &lt;div ng-switch-default&gt;AngularJS&lt;/div&gt;
+&lt;/div&gt;
+                    </code></pre>
+                    <div>
+                        <select ng-model="selection" ng-options="tool for tool in tools"></select>
+                        <span ng-switch="selection">
+                            <small style="margin: 16px 0 0 10px; width: 90px;" ng-switch-when="Dart">Dart</small>
+                            <small style="margin: 16px 0 0 10px; width: 90px;" ng-switch-when="Go Lang">Go Lang</small>
+                            <small style="margin: 16px 0 0 10px; width: 90px;" ng-switch-default>AngularJS</small>
+                        </span>
+                    </div>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
+                    <h3>Built-in directives in detail - 3</h3>
+                    <p><strong>ngModel</strong></p>
+                    <p><small>
+                        The ngModel directive binds the view into the model using NgModelController, which is created and exposed.
+                        It's responsible for providing validation behaviour and keeping the state of the control.
+                    </small></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+.textInput.ng-invalid {
+    color: white;
+    background: red;
+}
+&lt;input type="text" class="textInput" ng-model="name" ng-pattern="/^Wilk$/"/&gt;
+&lt;label&gt;{{name}}&lt;/label&gt;
+                    </code></pre>
+                    <div>
+                        <input type="text" class="textInput" ng-model="name" ng-pattern="/^Wilk$/"/>
+                        <small style="margin: 16px 0 0 10px; width: 50px;">[[name]]</small>
+                    </div>
+                </section>
+
+                <!--section>
+                    <h3>Built-in directives in detail - 6</h3>
+                    <p><strong>ngOptions | ngRepeat</strong></p>
+                    <p><small>
+                        ngOptions is a comprehension expression that shows its most power combined with the select element: it iterates through a given collection, returning the current item that have to be displayed into the select.
+                        ngRepeat instantiates a template once per item from a collection and each template instance gets its own scope.
+                    </small></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+&lt;article ng-repeat="article in articles"&gt;
+    &lt;header&gt;
+        {{article.title}}
+    &lt;/header&gt;
+    &lt;content&gt;
+        {{article.body}}
+    &lt;/content&gt;
+    &lt;footer&gt;
+        {{article.notes}}
+    &lt;/footer&gt;
+&lt;/article&gt;
+                    </code></pre>
+                    <div>
+                        <small ng-repeat="article in articles">
+                            | <span>
+                                [[article.title]]
+                            </span>
+                            <span>
+                                [[article.body]]
+                            </span>
+                            <span>
+                                [[article.notes]]
+                            </span> |
+                        </small>
+                    </div>
+                </section-->
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
+                    <h3>Build your custom directives</h3>
+                    <p>
+                        One of the most powerful feature in AngularJS is the possibility to make custom directives.
+                        Like other Angular components, a custom directive is just a module.
+                    </p>
+                </section>
+
+                <!--section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
+                    <h3>Configuration</h3>
+                    <p>A directive must return a configuration object with the following options:</p>
+                    <ul>
+                        <li>priority</li>
+                        <li>require</li>
+                        <li>restrict</li>
+                        <li>transclude</li>
+                        <li>scope</li>
+                        <li>controller</li>
+                        <li>controllerAs</li>
+                        <li>link</li>
+                        <li>templateNamespace</li>
+                        <li>templateUrl</li>
+                        <li>template</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>The link function</h3>
+                    <p>The link function is responsible for registering DOM listeners as well as updating the DOM. It is executed after the template has been cloned.</p>
+                    <p>It comes with the following signature:</p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+function link(scope, iElement, iAttrs, controller, transcludeFn) { ... }
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Scope in directives</h3>
+                    <p>
+                        If set to true, then a new scope will be created for this directive. If multiple directives on the same element request a new scope, only one new scope is created. The new scope rule does not apply for the root of the template since the root of the template always gets a new scope.
+                    </p>
+                    <p>
+                        If set to {} (object hash), then a new "isolate" scope is created. The 'isolate' scope differs from normal scope in that it does not prototypically inherit from the parent scope. This is useful when creating reusable components, which should not accidentally read or modify data in the parent scope.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Controller integration</h3>
+                    <p>A directive can have its own custom controller (like the scope) and it's possible to share the logic between other directives.</p>
+                    <p>A controller is injectable with the following locals:</p>
+                    <ul>
+                        <li>$scope</li>
+                        <li>$element</li>
+                        <li>$attrs</li>
+                        <li>$transclude</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Transclusion</h3>
+                    <p>
+                        Transclusion is the process of extracting a collection of DOM element from one part of the DOM and copying them to another part of the DOM, while maintaining their connection to the original AngularJS scope from where they were taken.
+                    </p>
+                    <p>
+                        Transclusion is used (often with ngTransclude) to insert the original contents of a directive's element into a specified place in the template of the directive. The benefit of transclusion, over simply moving the DOM elements manually, is that the transcluded content has access to the properties on the scope from which it was taken, even if the directive has isolated scope.
+                    </p>
+                    <p>
+                        This makes it possible for the widget to have private state for its template, while the transcluded content has access to its originating scope.
+                    </p>
+                </section-->
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
+                    <h3>Code sample</h3>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.directive('myClock', ['$interval', 'dateFilter', function ($interval, dateFilter) {
+    return {
+        restrict: 'E',
+        link: function (scope, element, attrs) {
+            $interval(function () {
+                element.text(dateFilter(new Date(), 'H:mm:ss'));
+            }, 1000);
+        }
+    };
+}]);
+&lt;my-clock&gt;&lt;/my-clock&gt;
+                    </code></pre>
+                    <my-clock></my-clock>
+                </section>
+            </section>
+
+            <section ng-controller="FilterCtrl">
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
+                    <h1>Filters</h1>
+                    <img src="images/tcl/filter.gif"/>
+                    <p style="margin-top: 25px;"><small><em><a href="http://thecodinglove.com/post/80977664309/when-i-criticize-my-boss-decision-who-is-right">thecodinglove.com</a></em></small></p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
+                    <h3>What is a filter?</h3>
+                    <p>
+                        A filter formats the value of an expression for display to the user. They can be used in view templates, controllers or services and it is easy to define your own filter.
+                    </p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
+                    <h3>Built-in filters</h3>
+                    <p>AngularJS has several built-in filters:</p>
+                    <ul>
+                        <li class="fragment">currency</li>
+                        <li class="fragment">date</li>
+                        <li class="fragment">json</li>
+                        <li class="fragment">limitTo</li>
+                        <li class="fragment">lowercase</li>
+                        <li class="fragment">uppercase</li>
+                        <li class="fragment">number</li>
+                        <li class="fragment">orderBy</li>
+                    </ul>
+                    <p class="fragment" style="margin-top: 10px;"><small><em><a href="https://docs.angularjs.org/api/ng/filter">https://docs.angularjs.org/api/ng/filter</a></em></small></p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
+                    <h3>Filters within templates</h3>
+                    <p>Filters can be applied to expressions in view templates using the following syntax:</p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+{{ expression | filter }}
+                    </code></pre>
+                    <div class="fragment">
+                        <p>Filters may have arguments:</p>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+{{ expression | filter:argument1:argument2:... }}
+                        </code></pre>
+                    </div>
+                    <div class="fragment">
+                        <p>It's possible to chain more filters:</p>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+{{ expression | filter1 | filter2 | ... }}
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
+                    <h3>Filters within the application</h3>
+                    <p>Inject a dependency with the name &lt;filterName&gt;Filter to your controller/service/directive:</p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.controller('MyCtrl', ['dateFilter', function(dateFilter) {
+    var date = dateFilter(new Date(), 'Ymd');
+}]);
+                    </code></pre>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
+                    <h3>Built-in filters in detail - 1</h3>
+                    <div class="fragment">
+                        <p><strong>Currency</strong></p>
+                        <p><small>Formats a number as a currency.</small></p>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+{{amount | currency:'€':2}} or currencyFilter(amount, '€', 2);
+{{amount | currency:'$':2}} or currencyFilter(amount, '$', 2);
+{{amount | currency:'£':2}} or currencyFilter(amount, '£', 2);
+                        </code></pre>
+                        <div>
+                            <input type="number" ng-model="amount"/>
+                            <small style="margin: 16px 0 0 10px; width: 50px;">[[amount | currency:'€':2]]</small>
+                            <small style="margin: 16px 0 0 10px; width: 50px;">[[amount | currency:'$':2]]</small>
+                            <small style="margin: 16px 0 0 10px; width: 50px;">[[amount | currency:'£':2]]</small>
+                        </div>
+                    </div>
+
+                    <div class="fragment">
+                        <p><strong>Date</strong></p>
+                        <p><small>Formats date to a string based on the requested format.</small></p>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+{{today | date:'M/d/yyyy'}} or dateFilter(today, 'M/d/yyyy');
+                        </code></pre>
+                        <div>
+                            <input type="date" ng-model="today"/>
+                            <small style="margin: 16px 0 0 10px; width: 50px;">[[today | date:'M/d/yyyy']]</small>
+                        </div>
+                    </div>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
+                    <h3>Built-in filters in detail - 2</h3>
+                    <div class="fragment">
+                        <p><strong>JSON</strong></p>
+                        <p><small>Converts a Javascript Object into JSON string.</small></p>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+{{objectToDebug | json}} or jsonFilter(objectToDebug);
+                        </code></pre>
+                        <div>
+                            <small style="margin: 16px 0 0 10px;">[[objectToDebug | json]]</small>
+                        </div>
+                    </div>
+
+                    <div class="fragment">
+                        <p><strong>orderBy</strong></p>
+                        <p><small>Orders a specified array by the expression predicate. It is ordered alphabetically for strings and numerically for numbers.</small></p>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+{{list | orderBy:predicate:reverse}} or orderByFilter(list, predicate, reverse);
+                        </code></pre>
+                        <div>
+                            <input type="checkbox" ng-model="reverse"/>
+                            <select ng-model="predicate" ng-options="predicate for predicate in predicates"></select>
+                            <ul>
+                                <li ng-repeat="user in users | orderBy:predicate:reverse">[[user.name]] - [[user.telephone]] - [[user.age]]</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
+                    <h3>Define your custom filters</h3>
+                    <p>
+                        Writing your own filter is very easy: just register a new filter factory function with your module.
+                        This factory function should return a new filter function which takes the input value as the first argument. Any filter arguments are passed in as additional arguments to the filter function.
+                    </p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
+                    <h3>Code sample</h3>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.filter('star', ['uppercaseFilter', function (uppercaseFilter) {
+    return function (value, starNumber) {
+        value = String(value);
+        starNumber = starNumber || 0;
+        var stars = '',
+            result = [];
+
+        for (var i = 0; i < starNumber; i++) stars += '*';
+        result.push(stars);
+        result.push(uppercaseFilter(value));
+        result.push(stars);
+        if (value && value.length > 0) return result.join(' ');
+        else return '';
+    };
+}]);
+
+&lt;p&gt;{{name | star:starNumber}}&lt;/p&gt;
+                    </code></pre>
+                    <div>
+                        <div>
+                            <small style="margin-top: 16px;">Stars:</small> <input type="number" ng-model="starNumber"/>
+                            <small style="margin-top: 16px;">Name:</small> <input type="text" ng-model="name"/>
+                        </div>
+                        <small style="margin: 16px 0 0 10px; width: 500px;">[[name | star:starNumber]]</small>
+                    </div>
+                </section>
+            </section>
+
+            <section ng-controller="ServiceCtrl">
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
+                    <h1>Services</h1>
+                    <img src="images/tcl/services.gif"/>
+                    <p style="margin-top: 25px;"><small><em><a href="http://thecodinglove.com/post/51081784288/when-the-interns-ask-for-help-to-fix-a-bug">thecodinglove.com</a></em></small></p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
+                    <h3>What's a service?</h3>
+                    <p>
+                        Angular services are substitutable objects that are wired together using dependency injection (DI). You can use services to organize and share code across your app.
+                    </p>
+                    <!--div>
+                    <p>Angular services are:</p>
+                    <ul>
+                        <li class="fragment"><strong>Lazily instantiated</strong> – Angular only instantiates a service when an application component depends on it.</li>
+                        <li class="fragment"><strong>Singletons</strong> – Each component depending on a service gets a reference to the single instance generated by the service factory.</li>
+                    </ul>
+                    <p class="fragment">
+                        Angular offers several useful services (like $http), but for most applications you'll also want to create your own.
+                    </p>
+                    </div-->
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
+                    <h3>Using a service</h3>
+                    <p>
+                        Angular has several built-in services and it's possible to use them with the Dependency Injection, like so:
+                    </p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.controller('MyCtrl', ['$http', function ($http) {
+    $http.get('/user')
+         .success(function (user) {
+            // Use the user data
+         })
+         .error(function (err) {
+            // Notify the error
+         });
+}]);
+                    </code></pre>
+                    <p>
+                        A service can be used where it's possible to use the DI: in other services, directives, controllers and filters.
+                    </p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
+                    <h3>Built-in services</h3>
+                    <p>AngularJS has several built-in services:</p>
+                    <ul>
+                        <li class="fragment">$http</li>
+                        <li class="fragment">$q</li>
+                        <li class="fragment">$location</li>
+                        <li class="fragment">$compile</li>
+                        <li class="fragment">$filter</li>
+                    </ul>
+                    <p class="fragment" style="margin-top: 10px;"><small><em><a href="https://docs.angularjs.org/api/ng/service">https://docs.angularjs.org/api/ng/service</a></em></small></p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
+                    <h3>Built-in services in detail - 1</h3>
+                    <p><strong>$filter</strong></p>
+                    <p><small>Retrieves the filter function requested</small></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.controller('MyCtrl', ['$filter', '$scope', function ($filter, $scope) {
+    $scope.filter = function () {
+        var dateFilter = $filter('date');
+        $scope.americanDate = dateFilter($scope.date, 'M/d/yyyy');
+    };
+}]);
+                    </code></pre>
+                    <div>
+                        <div>
+                            <small style="margin-top: 16px;">Date:</small> <input type="date" ng-model="date"/>
+                            <button ng-click="filter()">Filter</button>
+                        </div>
+                        <small>American Date: [[americanDate]]</small>
+                    </div>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
+                    <h3>Built-in services in detail - 2</h3>
+                    <p><strong>$http</strong></p>
+                    <p><small>The $http service is a core Angular service that facilitates communication with the remote HTTP servers via the browser's XMLHttpRequest object or via JSONP.</small></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.controller('MyCtrl', ['$http', '$scope', function ($http, $scope) {
+    $scope.getUser = function () {
+        $http.get('/Users.json')
+            .success(function (users) {
+                $scope.users = users;
+            });
+    };
+}]);
+                    </code></pre>
+                    <div>
+                        <button ng-click="getUsers()">Get Users</button>
+                        <table>
+                            <tr>
+                                <th><small>Name</small></th>
+                                <th><small>Telephone</small></th>
+                                <th><small>Age</small></th>
+                            </tr>
+                            <tr ng-repeat="user in users">
+                                <td><small>[[user.name]]</small></td>
+                                <td><small>[[user.telephone]]</small></td>
+                                <td><small>[[user.age]]</small></td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+
+                <!--section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
+                    <h3>Built-in services in detail - 3</h3>
+                    <p><strong>$httpBackend</strong></p>
+                    <p><small>Fake HTTP backend implementation suitable for end-to-end testing or backend-less development of applications that use the $http service.</small></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.run(['$httpBackend', '$http', function ($httpBackend, $http) {
+    $httpBackend.when('GET', '/users')
+        .response([
+            {name: 'Mario', telephone: '123 456 789', age: 35},
+            {name: 'Luigi', telephone: '321 654 987', age: 30},
+            {name: 'Vincenzo', telephone: '456 123 789', age: 27}
+        ]);
+    $http.get('users')
+        .success(function (users) {})
+        .error(function (err) {});
+}]);
+                    </code></pre>
+                </section-->
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
+                    <h3>Built-in services in detail - 3</h3>
+                    <p><strong>$location</strong></p>
+                    <p><small>The $location service parses the URL in the browser address bar (based on the window.location) and makes the URL available to your application. Changes to the URL in the address bar are reflected into $location service and changes to $location are reflected into the browser address bar.</small></p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.controller('MyCtrl', ['$scope', '$location', function ($scope, $location) {
+    $scope.url = {};
+    $scope.getUrl = function () {
+        $scope.url.absUrl = $location.absUrl();
+        $scope.url.url = $location.url();
+        $scope.url.protocol = $location.protocol();
+        $scope.url.host = $location.host();
+        $scope.url.path = $location.path();
+        $scope.url.port = $location.port();
+    };
+}]);
+                    </code></pre>
+                    <div>
+                        <button ng-click="getUrl()">Get Url</button>
+                        <p><small>[[url | json]]</small></p>
+                    </div>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
+                    <h3>Creating a custom service</h3>
+                    <p>
+                        <strong>angular.service</strong> allows to define a new service:
+                    </p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.service('Mario', ['$http', '$log', function ($http, $log) {
+    this.salutation = function () {
+        alert('Hi, I\'m Mario!');
+    };
+    this.findLuigi = function () {
+        $http.get('/luigi')
+            .success(function (luigi) {
+                alert('I found you, Luigi!');
+                $log.debug(luigi);
+            });
+    };
+}])
+.controller('MarioCtrl', ['Mario', function (Mario) {
+    Mario.salutation();
+    Mario.findLuigi();
+}]);
+                    </code></pre>
+                    <div>
+                        <button ng-click="salutation()">Salutation</button>
+                        <button ng-click="findLuigi()">Find Luigi</button>
+                    </div>
+                </section>
+
+                <!--section>
+                    <h3>Service, factory and provider</h3>
+                    <p>
+                        There are several ways to share code across the application:
+                    </p>
+                    <ul>
+                        <li>provider(provider) - registers a service provider with the $injector</li>
+                        <li>service(class): when declaring a service as an injectable argument you will be provided with an instance of the class. In other words new ClassYouPassedToService()</li>
+                        <li>factory(fn): when declaring a factory as an injectable argument you will be provided with the value that is returned by invoking the function reference passed to module.factory</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Value and constant</h3>
+                    <p>
+                        Another way to share code is with angular.value and angular.constant:
+                    </p>
+                    <ul>
+                        <li>constant(obj) - registers a value/object that can be accessed by providers and services.</li>
+                        <li>value(obj) - registers a value/object that can only be accessed by services, not providers.</li>
+                    </ul>
+                </section-->
+            </section>
+
+            <!--section ng-controller="FormCtrl">
+                <section>
+                    <h1>Data Validation</h1>
+                </section>
+
+                <section>
+                    <h3>Angular form</h3>
+                    <p>Form is simply a group of controls.</p>
+                    <p>Angular form creates an instance of FormController. FormController itself has methods and properties:</p>
+                    <ul>
+                        <li>formName.$pristine: TRUE if the user has not interacted with the form yet</li>
+                        <li>formName.$dirty: TRUE if the user has already interacted with the form.</li>
+                        <li>formName.$valid: TRUE if all containing form and controls are valid</li>
+                        <li>formName.$invalid: TRUE if at least one containing form and control is invalid.</li>
+                        <li>formName.$error: Is an object hash, containing references to all invalid controls or forms</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Form states</h3>
+                    <p>
+                        It is important to understand flow of the form states in order to use angular form properly. This flow gives you visualization of the form state from the very first time the form is rendered until the user has finished filling the form
+                    </p>
+                    <ul>
+                        <li>Flow 1: pristine and invalid - When the form is first rendered and the user has not interacted with the form yet.</li>
+                        <li>Flow 2: dirty and invalid - User has interacted with the form, but validity has not been satisfied, yet</li>
+                        <li>Flow 3: dirty and valid - User has finished filling the form and all the validation rule has been satisfied</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Data validation and data binding</h3>
+                    <p>
+                        Thanks to the ngModel is possible to combine the data-binding with the data validation.
+                        The ngModelController has several validation functions stored in the $validators object and Angular provides basic implementation for most common HTML5 input types: (text, number, url, email, radio, checkbox), as well as some directives for validation (required, pattern, minlength, maxlength, min, max).
+                    </p>
+                    <p>
+                        With directives it's possible to add new type of validators: each function in the $validators object receives the modelValue and the viewValue as parameters that Angular uses to validate the form.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Code sample - Markup</h3>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+&lt;form name="form" class="css-form" novalidate&gt;
+    &lt;label&gt;Name:&lt;/label&gt;
+    &lt;input type="text" ng-model="user.name" name="name" required /&gt;
+
+    &lt;label&gt;Email:&lt;/label&gt;
+    &lt;input type="email" ng-model="user.email" name="email" required /&gt;
+    &lt;div ng-show="form.email.$dirty && form.email.$invalid"&gt;Invalid:
+        &lt;span ng-show="form.email.$error.required"&gt;An email is requested.&lt;/span&gt;
+        &lt;span ng-show="form.email.$error.email"&gt;This is not a valid email.&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;label&gt;Gender:&lt;/label&gt;
+    &lt;input type="radio" ng-model="user.gender" name="gender" value="male"
+        required /&gt;
+    male
+    &lt;input type="radio" ng-model="user.gender" name="gender" value="female"
+        required /&gt;
+    female
+
+    &lt;label&gt;I agree:&lt;/label&gt;
+    &lt;input type="checkbox" ng-model="user.agree" name="agree" required /&gt;
+    &lt;div ng-show="!user.agree">Please agree.&lt;/div&gt;
+
+    &lt;button ng-click="reset()" ng-disabled="isUnchanged(user)"&gt;Reset&lt;/button&gt;
+    &lt;button ng-click="update(user)"
+        ng-disabled="form.$invalid || isUnchanged(user)"&gt;
+        Save
+    &lt;/button&gt;
+&lt;/form&gt;
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Code sample - Javascript</h3>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.controller('FormCtrl', ['$scope', function ($scope) {
+    $scope.origin = {};
+    $scope.reset = function () {
+        $scope.user = angular.copy($scope.origin);
+    };
+    $scope.update = function (user) {
+        $scope.origin = angular.copy(user);
+    };
+    $scope.isUnchanged = function (user) {
+        return angular.equals(user, $scope.origin);
+    };
+    $scope.reset();
+}]);
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Code sample - Live</h3>
+                    <form name="form" class="css-form" novalidate>
+                        <div>
+                            <label>Name:</label>
+                            <input type="text" ng-model="user.name" name="name" required />
+                        </div>
+                        <div>
+                            <label>Email:</label>
+                            <input type="email" ng-model="user.email" name="email" required />
+                            <div ng-show="form.email.$dirty && form.email.$invalid">Invalid:
+                                <span ng-show="form.email.$error.required">An email is requested.</span>
+                                <span ng-show="form.email.$error.email">This is not a valid email.</span>
+                            </div>
+                        </div>
+                        <div>
+                            <label>Gender:</label>
+                            <input type="radio" ng-model="user.gender" name="gender" value="male" required />male
+                            <input type="radio" ng-model="user.gender" name="gender" value="female" required />female
+                        </div>
+                        <div>
+                            <label>I agree:</label>
+                            <input type="checkbox" ng-model="user.agree" name="agree" required />
+                            <div ng-show="!user.agree">Please agree.</div>
+                        </div>
+                        <div>
+                            <button ng-click="reset()" ng-disabled="isUnchanged(user)">Reset</button>
+                            <button ng-click="update(user)" ng-disabled="form.$invalid || isUnchanged(user)">Save</button>
+                        </div>
+                    </form>
+                </section>
+            </section-->
+
+            <section>
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
+                    <h1>Modularity</h1>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
+                    <h3>How to build a module</h3>
+                    <p>Angular provides the angular.module function to register a new module.</p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.module('MyModule', []);
+                    </code></pre>
+                    <p>The empty array stands for the dependencies list.</p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
+                    <h3>Custom modules aka Dependencies</h3>
+                    <p>
+                        In Angular every module is a dependency that can be re-used in the application.
+                    </p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.module('MyModule.values', [])
+       .value('MyValue', 'a value');
+
+angular.module('MyApp', ['MyModule.values'])
+       .controller('MyCtrl', ['MyValue', function (MyValue) {
+            expect(MyValue).toBe('a value');
+        }]);
+                    </code></pre>
+                </section>
+            </section>
+
+            <section>
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
+                    <h1>Testing</h1>
+                    <img src="images/tcl/testing.gif"/>
+                    <p style="margin-top: 25px;"><small><em><a href="http://thecodinglove.com/post/88555543847/testing-phase">thecodinglove.com</a></em></small></p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
+                    <h3>Types of testing</h3>
+                    <p>
+                        First of all, Javascript is a dynamically typed language that comes with no help from the compiler and Angular is written with testability in mind.
+                        There are two types of testing in AngularJS:
+                    </p>
+                    <ul>
+                        <li>End to End Testing</li>
+                        <li>Unit Testing</li>
+                    </ul>
+                </section>
+
+                <!--section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
+                    <h3>E2E or Unit Test?</h3>
+                    <p>
+                        As applications grow in size and complexity, it becomes unrealistic to rely on manual testing to verify the correctness of new features, catch bugs and notice regressions. Unit tests are the first line of defense for catching bugs, but sometimes issues come up with integration between components which can't be captured in a unit test. End to end tests are made to find these problems.
+                    </p>
+                </section-->
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
+                    <h3>Jasmine (Unit Test)</h3>
+                    <p><a href="http://jasmine.github.io/">http://jasmine.github.io/</a></p>
+                    <p>Jasmine is a testing framework and has several powerful constructors that allow to make assertions and expections on different expression.</p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+var Mario;
+describe('Testing Mario service', function () {
+    beforeEach(module('MyModule'));
+    beforeEach(inject(function (_Mario_) {
+        Mario = _Mario_;
+    }));
+
+    describe('Testing getCoins method', function () {
+        it('should return an empty array of coins', function () {
+            var coins = Mario.getCoins();
+            expect(coins).toBeDefined();
+            expect(coins.length).toBeDefined();
+            expect(coins.length).toEqual(0);
+        });
+    });
+});
+                    </code></pre>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
+                    <h3>Protractor (E2E Test)</h3>
+                    <p><a href="https://github.com/angular/protractor">https://github.com/angular/protractor</a></p>
+                    <p>Protractor is an end to end test runner which simulates user interactions that will help you verify the health of your Angular application.</p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+describe('Users Table', function () {
+    it('should filter the users by name', function () {
+        // Load users
+        element(by.css(':button')).click();
+        expect(element.all(by.repeater('user in users')).count()).toEqual(3);
+
+        // Filter by name (Mario)
+        element(by.model('name')).sendKeys('Mario');
+        expect(element.all(by.repeater('user in users')).count()).toEqual(1);
+    });
+});
+                    </code></pre>
+                </section>
+            </section>
+
+            <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
+                <h1>Useful Modules</h1>
+                <img src="images/tcl/useful-modules.jpg"/>
+                <p style="margin-top: 25px;"><small><em><a href="http://thecodinglove.com/post/61422051422/when-i-show-to-the-intern-a-useful-library">thecodinglove.com</a></em></small></p>
+            </section>
+
+            <section>
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
+                    <h1>ngResource</h1>
+                    <p><a href="https://docs.angularjs.org/api/ngResource">https://docs.angularjs.org/api/ngResource</a></p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
+                    <h3>What is it?</h3>
+                    <p>The ngResource module provides interaction support with RESTful services via the $resource service and $resourceProvider.</p>
+                </section>
+
+                <!--section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
+                    <h3>$resource service</h3>
+                    <p>A factory which creates a resource object that lets you interact with RESTful server-side data sources.</p>
+                    <p>When a new $resource is created, it's expected to pass the following parameters to the constructor:</p>
+                    <ul>
+                        <li>(String) url: a string representing the url of this resource</li>
+                        <li>(Object) paramDefaults: a key-value map representing default parameters that will be attached to each call in the query string</li>
+                        <li>(Object) actions: Hash with declaration of custom action. Each action will be reflected as a resource method and it will have its custom HTTP method, url and params.</li>
+                    </ul>
+                </section-->
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
+                    <h3>Code sample</h3>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.module('MyModule', ['ngResource'])
+    .service('Mario', ['$resource', function ($resource) {
+        return $resource('/Mario/:id', {id: '@id'}, {
+            getStars: {
+                method: 'GET',
+                url: '/Mario/stars',
+                isArray: true
+            }
+        });
+    }])
+    .controller('MyCtrl', ['$scope', 'Mario', function ($scope, Mario) {
+        // -> GET /Mario/
+        // <- {id: 10, starCounter: 9}
+        $scope.mario = Mario.get(function () {
+            $scope.mario.starCounter = 10;
+            $scope.mario.$save(); // POST /Mario/10 {id: 10, starCounter: 10}
+        });
+        // GET /Mario/stars
+        $scope.stars = Mario.getStars(function () {
+            expect($scope.stars.length).not.toEqual(0);
+        });
+    }]);
+                    </code></pre>
+                </section>
+            </section>
+
+            <section>
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
+                    <h1>ngRoute</h1>
+                    <p><a href="https://docs.angularjs.org/api/ngRoute">https://docs.angularjs.org/api/ngRoute</a></p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
+                    <h3>Client-side routing</h3>
+                    <p>
+                        Single page web applications need client-side routing because they communicate with the server with AJAX/WebSocket protocols instead of refreshing the entire page.
+                    </p>
+                    <p>
+                        Angular provides a set of spectacular features.
+                    </p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
+                    <h3>What is it?</h3>
+                    <p>
+                        ngRoute is an Angular module providing features to handle client-side routing with ease.
+                        It's mainly composed of:
+                    </p>
+                    <ul>
+                        <li class="fragment">ngView: directive</li>
+                        <li class="fragment">$routeProvider: provider</li>
+                        <li class="fragment">$route: service</li>
+                        <li class="fragment">$routeParams: service</li>
+                    </ul>
+                    <p class="fragment" style="margin-top: 25px;">The idea is to use the $routeProvider initially, combined with the ngView directive to load the route template associated and then to use the $route/$routeParams service to get params.</p>
+                </section>
+
+                <!--section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
+                    <h3>$routeProvider</h3>
+                    <p>
+                        This provider is used to configure the routing table of your application.
+                        It has two methods: when and otherwise.
+                        For each route defined with when method it's possible to configure the following properties:
+                    </p>
+                    <ul>
+                        <li>controller: the controller that will handle the route</li>
+                        <li>template: an Angular template string</li>
+                        <li>templateUrl: the url of a view (a template located in a file)</li>
+                        <li>resolve: An optional map of dependencies which should be injected into the controller.</li>
+                        <li>redirectTo: a string defining the route to redirect</li>
+                    </ul>
+                </section-->
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
+                    <h3>$routeParams</h3>
+                    <p>The $routeParams service allows you to retrieve the current set of route parameters.</p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.controller('MyCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
+    // localhost/#/wilk/ngWebsocket/ <- mapped with $routeProvider
+    $scope.username = $routeParams.username;
+    $scope.reponame = $routeParams.reponame;
+}]);
+                    </code></pre>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
+                    <h3>Code sample</h3>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.module('MyModule', ['ngRoute'])
+    .config(['$routeProvider', function ($routeProvider) {
+        $routeProvider.when('/:username/:reponame/', {
+            templateUrl: 'views/repo.html',
+            controller: 'RepoCtrl'
+        });
+    }])
+    .controller('RepoCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
+        $scope.username = $routeParams.username;
+        $scope.reponame = $routeParams.reponame;
+    }]);
+
+// index.html
+&lt;div&gt;
+    &lt;ng-view&gt;&lt;/ng-view&gt;
+&lt;/div&gt;
+
+// views/repo.html
+&lt;div&gt;
+    &lt;b&gt;Username&lt;/b&gt;: {{username}}
+    &lt;b&gt;Repo Name&lt;/b&gt;: {{reponame}}
+&lt;/div&gt;
+                    </code></pre>
+                </section>
+            </section>
+
+            <section>
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
+                    <h1>ngCookies</h1>
+                    <p><a href="https://docs.angularjs.org/api/ngCookies">https://docs.angularjs.org/api/ngCookies</a></p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
+                    <h3>What is it?</h3>
+                    <p>The ngCookies module provides a convenient wrapper for reading and writing browser cookies.</p>
+                    <p>It comes with two services:</p>
+                    <ul>
+                        <li>$cookieStore</li>
+                        <li>$cookies</li>
+                    </ul>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
+                    <h3>$cookieStore</h3>
+                    <p>Provides a key-value (string-object) storage, that is backed by session cookies. Objects put or retrieved from this storage are automatically serialized or deserialized by angular's toJson/fromJson.</p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.module('MyModule', ['ngCookies'])
+    .controller('MyCtrl', ['$cookieStore', function ($cookieStore) {
+        $cookieStore.put('Character', 'Mario');
+        var choosenCharacter = $cookieStore.get('Character'); // Mario
+        $cookieStore.remove('Character');
+    }]);
+                    </code></pre>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
+                    <h3>$cookies</h3>
+                    <p>Provides read/write access to browser's cookies like $cookieStore. The mainly difference is that only a simple object is exposed and by adding or removing properties to/from this object, new cookies are created/deleted.</p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.module('MyModule', ['ngCookies'])
+    .controller('MyCtrl', ['$cookies', function ($cookies) {
+        var Character = $cookies.Character;
+        $cookies.Character = 'Mario';
+    }]);
+                    </code></pre>
+                </section>
+            </section>
+
+            <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
+                <h1>Libraries</h1>
+            </section>
+
+            <section>
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
+                    <h1>Angular-UI</h1>
+                    <p><a href="http://angular-ui.github.io/">http://angular-ui.github.io/</a></p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
+                    <h3>Chemical Composition</h3>
+                    <p>Angular-UI is a tool suite that comes with a set of libraries for Angular:</p>
+                    <ul>
+                        <li class="fragment">UI Utils</li>
+                        <li class="fragment">UI Modules</li>
+                        <li class="fragment">UI Bootstrap</li>
+                        <li class="fragment">NG Grid</li>
+                        <li class="fragment">UI Router</li>
+                    </ul>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
+                    <h3>UI Utils</h3>
+                    <p><a href="http://angular-ui.github.io/ui-utils/">http://angular-ui.github.io/ui-utils/</a></p>
+                    <p>A utility package with no external dependencies: each module is contained in this package but can be included individually.</p>
+                    <p>Some common modules:</p>
+                    <ul>
+                        <li class="fragment">Event Binder</li>
+                        <li class="fragment">Keypress</li>
+                        <li class="fragment">Mask</li>
+                        <li class="fragment">Scrollfix</li>
+                        <li class="fragment">Show / Hide / Toggle</li>
+                    </ul>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
+                    <h3>UI Modules</h3>
+                    <p>Standalone AngularUI modules with external dependencies:</p>
+                    <ul>
+                        <li class="fragment">ui-ace: Ace IDE module</li>
+                        <li class="fragment">ui-calendar: web calendar view module</li>
+                        <li class="fragment">ui-map: Google Maps module</li>
+                        <li class="fragment">ui-date: module for a date picker</li>
+                    </ul>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
+                    <h3>UI Bootstrap</h3>
+                    <p><a href="http://angular-ui.github.io/bootstrap/">http://angular-ui.github.io/bootstrap/</a></p>
+                    <p>
+                        Twitter Bootstrap written natively in AngularJS.
+                        This repository contains a set of native AngularJS directives based on Bootstrap's markup and CSS.
+                        As a result no dependency on jQuery or Bootstrap's JavaScript is required.
+                    </p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
+                    <h3>ngGrid</h3>
+                    <p><a href="http://angular-ui.github.io/ng-grid/">http://angular-ui.github.io/ng-grid/</a></p>
+                    <p>
+                        Grid virtualization written natively in AngularJS and JQuery.
+                        ngGrid comes as an attribute requiring a configuration object:
+                    </p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+// views/grid.js
+&lt;div class="gridStyle" ng-grid="gridOptions"&gt;&lt;/div&gt;
+
+// app.js
+angular.module('MyModule', ['ui.grid'])
+    .controller('MyCtrl', ['$scope', function ($scope) {
+        $scope.myData = [
+            {name: "Moroni", age: 50},
+            {name: "Tiancum", age: 43},
+            {name: "Jacob", age: 27},
+            {name: "Nephi", age: 29},
+            {name: "Enos", age: 34}
+        ];
+        $scope.gridOptions = {data: 'myData'};
+    }]);
+                    </code></pre>
+                </section>
+
+                <!--section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
+                    <h3>UI Router</h3>
+                    <p><a href="http://angular-ui.github.io/ui-router/site/#/api/ui.router">http://angular-ui.github.io/ui-router/site/#/api/ui.router</a></p>
+                    <p>Nested Routing for AngularJS. It comes with a set of submodule to use in your application.</p>
+                    <p>TODO: to finish</p>
+                </section-->
+            </section>
+
+            <section>
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
+                    <h1>Restangular</h1>
+                    <p><a href="https://github.com/mgonto/restangular">https://github.com/mgonto/restangular</a></p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
+                    <h3>What is it?</h3>
+                    <p>Restangular is an AngularJS service that simplifies common GET, POST, DELETE, and UPDATE requests with a minimum of client code. It's a perfect fit for any WebApp that consumes data from a RESTful API.</p>
+                    <p class="fragment">It provides the following features:</p>
+                    <ul>
+                        <li class="fragment">promises</li>
+                        <li class="fragment">all HTTP methods</li>
+                        <li class="fragment">easy way to build custom REST APIs</li>
+                    </ul>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
+                    <h3>Code sample</h3>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.module('MyModule', ['restangular'])
+    .controller('MyCtrl', ['$scope', 'Restangular', function ($scope, Restangular) {
+        var mushroomsEntity = Restangular.all('mushrooms');
+        // GET /mushrooms
+        mushroomsEntity.getList().then(function (mushrooms) {
+            $scope.mushrooms = mushrooms;
+        });
+        // or
+        $scope.mushrooms = mushroomsEntity.getList().$object;
+
+        // POST /mushrooms {color: 'brown'}
+        mushroomsEntity.post({color: 'brown'});
+    }]);
+                    </code></pre>
+                </section>
+            </section>
+
+            <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
+                <h1>Frameworks</h1>
+            </section>
+
+            <section>
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
+                    <h1>Ionic Framework</h1>
+                    <p><a href="http://ionicframework.com/">http://ionicframework.com/</a></p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
+                    <h3>What is it?</h3>
+                    <p>Free and open source, Ionic offers a library of mobile-optimized HTML, CSS and JS components, gestures, and tools for building highly interactive apps. Built with Sass and optimized for AngularJS.</p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
+                    <h3>What is it composed of?</h3>
+                    <p>It's composed of:</p>
+                    <ul>
+                        <li class="fragment">AngularJS: the Javascript part is satisfied by Angular</li>
+                        <li class="fragment">CSS/SASS: a set of CSS/SASS classes that can be overridden by new ones</li>
+                        <li class="fragment">Ionic Client: a tool built with NodeJS that helps you with your project</li>
+                    </ul>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
+                    <h3>Components</h3>
+                    <p>Ionic comes with serveral useful components:</p>
+                    <ul>
+                        <li class="fragment">header and footer bars</li>
+                        <li class="fragment">buttons (with icons)</li>
+                        <li class="fragment">lists</li>
+                        <li class="fragment">cards</li>
+                        <li class="fragment">forms</li>
+                        <li class="fragment">HTML5 input types</li>
+                        <li class="fragment">tab panels</li>
+                        <li class="fragment">grids</li>
+                    </ul>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
+                    <h3>Features</h3>
+                    <p>CSS components are not the only important thing. Ionic has got lots of Javascript features:</p>
+                    <ul>
+                        <li class="fragment">action sheet</li>
+                        <li class="fragment">events</li>
+                        <li class="fragment">lists</li>
+                        <li class="fragment">gestures</li>
+                        <li class="fragment">navigation</li>
+                        <li class="fragment">utility</li>
+                    </ul>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
+                    <h3>Getting started</h3>
+                    <p>Try it out!</p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+$ sudo npm install -g cordova ionic
+$ ionic start myAwesomeApp tabs
+$ cd myAwesomeApp
+$ ionic platform add android
+$ ionic build android
+$ ionic emulate android
+                    </code></pre>
+                </section>
+            </section>
+
+            <section>
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
+                    <h1>Mobile Angular UI</h1>
+                    <p><a href="http://mobileangularui.com/">http://mobileangularui.com/</a></p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
+                    <h3>What is it?</h3>
+                    <p>Mobile Angular UI is a mobile UI framework just like Sencha Touch or jQuery Mobile. If you know Angular JS and Twitter Bootstrap you already know it!</p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
+                    <h3>What is it composed of?</h3>
+                    <p>It's composed of:</p>
+                    <ul>
+                        <li class="fragment">AngularJS</li>
+                        <li class="fragment">Twitter Bootstrap</li>
+                        <li class="fragment">PhoneGap</li>
+                    </ul>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
+                    <h3>Getting started</h3>
+                    <p>Try it out!</p>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+$ sudo npm install -g bower yo gulp generator-mobileangularui phonegap
+$ phonegap create myAwesomeApp
+$ cd myAwesomeApp
+$ yo mobileangularui
+$ gulp build
+$ phonegap run ios
+                    </code></pre>
+                </section>
+            </section>
+
+            <section>
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
+                    <h1>Conclusion</h1>
+                    <img src="images/tcl/conclusion.gif"/>
+                    <p style="margin-top: 25px;"><small><em><a href="http://thecodinglove.com/post/100165429729/when-i-prove-that-the-qa-team-was-wrong-about-bugs">thecodinglove.com</a></em></small></p>
+                </section>
+
+                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
+                    <h3>Why Angular?</h3>
+                    <ul>
+                        <li class="fragment">Open Source</li>
+                        <li class="fragment">Highly Modular</li>
+                        <li class="fragment">Top for Single Page Web Application</li>
+                        <li class="fragment">Multi Pattern</li>
+                        <li class="fragment">Lots of Docs</li>
+                        <li class="fragment">Lots of Modules</li>
+                        <li class="fragment">Pure Javascript</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
+                <h1>Thank you!</h1>
+                <img src="images/tcl/applauses.gif"/>
+                <p style="margin-top: 25px;"><small><em><a href="http://thecodinglove.com/post/82885878634/when-the-big-boss-congratulates-my-work">thecodinglove.com</a></em></small></p>
+            </section>
+
+            <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
+                <h1>Questions?</h1>
+                <img src="images/tcl/questions.gif"/>
+                <p style="margin-top: 25px;"><small><em><a href="http://thecodinglove.com/search/404">thecodinglove.com</a></em></small></p>
+            </section>
+
+            <!--section>
+                <h1>Useful Refs</h1>
+                <ul>
+                    <li class="fragment"><a href="https://github.com/toddmotto/angularjs-styleguide">Todd Motto AngularJS Style Guide</a></li>
+                    <li class="fragment"></li>
+                    <li class="fragment"></li>
+                    <li class="fragment"></li>
+                    <li class="fragment"></li>
+                </ul>
+            </section-->
+
+            <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
+                <h1>Credits</h1>
+                <ul>
+                    <li><a href="http://alicialiu.net/leveling-up-angular-talk">http://alicialiu.net/leveling-up-angular-talk</a></li>
+                    <li><a href="http://thecondiglove.com/">thecondiglove.com</a></li>
+                </ul>
+            </section>
+
+
+
+            <!--
+
+
+
+				<section>
+					<h1>Reveal.js</h1>
+					<h3>HTML Presentations Made Easy</h3>
+					<p>
+						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Heads Up</h2>
+					<p>
+						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
+						support for CSS 3D transforms to see it in its full glory.
+					</p>
+
+					<aside class="notes">
+						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+					</aside>
+				</section>-->
+
+				<!-- Example of nested vertical slides -->
+				<!--<section>
+					<section>
+						<h2>Vertical Slides</h2>
+						<p>
+							Slides can be nested inside of other slides,
+							try pressing <a href="#" class="navigate-down">down</a>.
+						</p>
+						<a href="#" class="image navigate-down">
+							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section>
+						<h2>Basement Level 1</h2>
+						<p>Press down or up to navigate.</p>
+					</section>
+					<section>
+						<h2>Basement Level 2</h2>
+						<p>Cornify</p>
+						<a class="test" href="http://cornify.com">
+							<img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
+						</a>
+					</section>
+					<section>
+						<h2>Basement Level 3</h2>
+						<p>That's it, time to go back up.</p>
+						<a href="#/2" class="image">
+							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
+						</a>
+					</section>
+				</section>
+
+				<section>
+					<h2>Slides</h2>
+					<p>
+						Not a coder? No problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slid.es" target="_blank">http://slid.es</a>.
+					</p>
+				</section>
+
+				<section>
+					<h2>Point of View</h2>
+					<p>
+						Press <strong>ESC</strong> to enter the slide overview.
+					</p>
+					<p>
+						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
+					</p>
+				</section>
+
+				<section>
+					<h2>Works in Mobile Safari</h2>
+					<p>
+						Try it out! You can swipe through the slides and pinch your way to the overview.
+					</p>
+				</section>
+
+				<section>
+					<h2>Marvelous Unordered List</h2>
+					<ul>
+						<li>No order here</li>
+						<li>Or here</li>
+						<li>Or here</li>
+						<li>Or here</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Fantastic Ordered List</h2>
+					<ol>
+						<li>One is smaller than...</li>
+						<li>Two is smaller than...</li>
+						<li>Three!</li>
+					</ol>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Markdown support
+
+						For those of you who like that sort of thing. Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
+
+						```
+						<section data-markdown>
+						  ## Markdown support
+
+						  For those of you who like that sort of thing.
+						  Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
+						</section>
+						```
+					</script>
+				</section>
+
+				<section id="transitions">
+					<h2>Transition Styles</h2>
+					<p>
+						You can select from different transitions, like: <br>
+						<a href="?transition=cube#/transitions">Cube</a> -
+						<a href="?transition=page#/transitions">Page</a> -
+						<a href="?transition=concave#/transitions">Concave</a> -
+						<a href="?transition=zoom#/transitions">Zoom</a> -
+						<a href="?transition=linear#/transitions">Linear</a> -
+						<a href="?transition=fade#/transitions">Fade</a> -
+						<a href="?transition=none#/transitions">None</a> -
+						<a href="?#/transitions">Default</a>
+					</p>
+				</section>
+
+				<section id="themes">
+					<h2>Themes</h2>
+					<p>
+						Reveal.js comes with a few themes built in: <br>
+						<a href="?#/themes">Default</a> -
+						<a href="?theme=sky#/themes">Sky</a> -
+						<a href="?theme=beige#/themes">Beige</a> -
+						<a href="?theme=simple#/themes">Simple</a> -
+						<a href="?theme=serif#/themes">Serif</a> -
+						<a href="?theme=night#/themes">Night</a> <br>
+						<a href="?theme=moon#/themes">Moon</a> -
+						<a href="?theme=solarized#/themes">Solarized</a>
+					</p>
+					<p>
+						<small>
+							* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
+						</small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Global State</h2>
+					<p>
+						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
+						will be added as a class to the document element when the slide is open. This lets you
+						apply broader style changes, like switching the background.
+					</p>
+				</section>
+
+				<section data-state="customevent">
+					<h2>Custom Events</h2>
+					<p>
+						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
+					</p>
+					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+Reveal.addEventListener( 'customevent', function() {
+	console.log( '"customevent" has fired' );
+} );
+					</code></pre>
+				</section>
+
+				<section>
+					<section data-background="#007777">
+						<h2>Slide Backgrounds</h2>
+						<p>
+							Set <code>data-background="#007777"</code> on a slide to change the full page background to the given color. All CSS color formats are supported.
+						</p>
+						<a href="#" class="image navigate-down">
+							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png">
+						<h2>Image Backgrounds</h2>
+						<pre><code>&lt;section data-background="image.png"&gt;</code></pre>
+					</section>
+					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" data-background-repeat="repeat" data-background-size="100px">
+						<h2>Repeated Image Backgrounds</h2>
+						<pre><code style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
+					</section>
+				</section>
+
+				<section data-transition="linear" data-background="#4d7e65" data-background-transition="slide">
+					<h2>Background Transitions</h2>
+					<p>
+						Pass reveal.js the <code>backgroundTransition: 'slide'</code> config argument to make backgrounds slide rather than fade.
+					</p>
+				</section>
+
+				<section data-transition="linear" data-background="#8c4738" data-background-transition="slide">
+					<h2>Background Transition Override</h2>
+					<p>
+						You can override background transitions per slide by using <code>data-background-transition="slide"</code>.
+					</p>
+				</section>
+
+				<section>
+					<h2>Clever Quotes</h2>
+					<p>
+						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
+					</p>
+					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
+						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
+					</blockquote>
+				</section>
+
+				<section>
+					<h2>Pretty Code</h2>
+					<pre><code data-trim contenteditable>
+function linkify( selector ) {
+  if( supports3DTransforms ) {
+
+    var nodes = document.querySelectorAll( selector );
+
+    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+      var node = nodes[i];
+
+      if( !node.className ) {
+        node.className += ' roll';
+      }
+    }
+  }
+}
+					</code></pre>
+					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
+				</section>
+
+				<section>
+					<h2>Intergalactic Interconnections</h2>
+					<p>
+						You can link between slides internally,
+						<a href="#/2/3">like this</a>.
+					</p>
+				</section>
+
+				<section>
+					<section id="fragments">
+						<h2>Fragmented Views</h2>
+						<p>Hit the next arrow...</p>
+						<p class="fragment">... to step through ...</p>
+						<ol>
+							<li class="fragment"><code>any type</code></li>
+							<li class="fragment"><em>of view</em></li>
+							<li class="fragment"><strong>fragments</strong></li>
+						</ol>
+
+						<aside class="notes">
+							This slide has fragments which are also stepped through in the notes window.
+						</aside>
+					</section>
+					<section>
+						<h2>Fragment Styles</h2>
+						<p>There's a few styles of fragments, like:</p>
+						<p class="fragment grow">grow</p>
+						<p class="fragment shrink">shrink</p>
+						<p class="fragment roll-in">roll-in</p>
+						<p class="fragment fade-out">fade-out</p>
+						<p class="fragment highlight-red">highlight-red</p>
+						<p class="fragment highlight-green">highlight-green</p>
+						<p class="fragment highlight-blue">highlight-blue</p>
+						<p class="fragment current-visible">current-visible</p>
+						<p class="fragment highlight-current-blue">highlight-current-blue</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Spectacular image!</h2>
+					<a class="image" href="http://lab.hakim.se/meny/" target="_blank">
+						<img width="320" height="299" src="http://s3.amazonaws.com/hakim-static/portfolio/images/meny.png" alt="Meny">
+					</a>
+				</section>
+
+				<section>
+					<h2>Export to PDF</h2>
+					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p>
+					<iframe id="slideshare" src="http://www.slideshare.net/slideshow/embed_code/13872948" width="455" height="356" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
+					<script>
+						document.getElementById('slideshare').attributeName = 'allowfullscreen';
+					</script>
+				</section>
+
+				<section>
+					<h2>Take a Moment</h2>
+					<p>
+						Press b or period on your keyboard to enter the 'paused' mode. This mode is helpful when you want to take distracting slides off the screen
+						during a presentation.
+					</p>
+				</section>
+
+				<section>
+					<h2>Stellar Links</h2>
+					<ul>
+						<li><a href="http://slid.es">Try the online editor</a></li>
+						<li><a href="https://github.com/hakimel/reveal.js">Source code on GitHub</a></li>
+						<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>THE END</h1>
+					<h3>BY Hakim El Hattab / hakim.se</h3>
+				</section>
+
+            -->
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+                //parallaxBackgroundImage: 'http://alicialiu.net/leveling-up-angular-talk/images/8-4.png',
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+                backgroundTransition: 'slide',
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
