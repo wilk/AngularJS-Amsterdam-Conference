@@ -49,7 +49,7 @@
 
             <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
                 <h1>AngularJS</h1>
-                    <img src="images/mario.gif" style="background: transparent; box-shadow: none; border: none;"/>
+                <img src="images/mario.gif" style="background: transparent; box-shadow: none; border: none;"/>
             </section>
 
             <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
@@ -193,18 +193,7 @@
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
                     <h3>Link Phase</h3>
-                    <p>It combines the directives with a scope and produces a live view. Any changes in the scope model are reflected in the view, and any user interactions with the view are reflected in the scope model. This makes the scope model the single source of truth</p>
-                </section>
-
-                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
-                    <h3>Template Composition</h3>
-                    <p>The template engine supports the following AngularJS elements and attributes:</p>
-                    <ul>
-                        <li class="fragment">Directives</li>
-                        <li class="fragment">Expressions</li>
-                        <li class="fragment">Filters</li>
-                        <li class="fragment">Form controls</li>
-                    </ul>
+                    <p>It combines the directives with a scope and produces a live view.</p>
                 </section>
 
                 <!--section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
@@ -241,6 +230,17 @@ angular.module('MyModule', [])
                             <button ng-click="templateSubmit()">Submit</button></p>
                     </div>
                 </section>
+
+                <!--section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
+                    <h3>Template Composition</h3>
+                    <p>The template engine supports the following AngularJS elements and attributes:</p>
+                    <ul>
+                        <li class="fragment">Directives</li>
+                        <li class="fragment">Expressions</li>
+                        <li class="fragment">Filters</li>
+                        <li class="fragment">Form controls</li>
+                    </ul>
+                </section-->
             </section>
 
             <section>
@@ -284,19 +284,32 @@ angular.module('MyModule', [])
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
                     <h3>Code sample</h3>
-                    <p>
+                    <div class="fragment">
+                        Inline Array Annotation (preferred)
                         <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-angular.run(['$http', function ($http) {
-    // do something with $http service
-}]);
-angular.config(['$httpProvider', function ($httpProvider) {
-    // do something with $httpProvider provider
-}]);
 angular.controller('MyCtrl', ['$scope', '$location', function ($scope, $location) {
     // do something with $scope and $location services
 }]);
                         </code></pre>
-                    </p>
+                    </div>
+                    <div class="fragment">
+                        $inject Property Annotation
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+var MyCtrl = function ($scope, $location) {
+    // do something with $scope and $location services
+};
+MyCtrl.$inject = ['$scope', '$location'];
+angular.controller('MyCtrl', MyCtrl);
+                        </code></pre>
+                    </div>
+                    <div class="fragment">
+                        Implicit Annotation
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+angular.controller('MyCtrl', function ($scope, $location) {
+    // do something with $scope and $location services
+});
+                        </code></pre>
+                    </div>
                 </section>
             </section>
 
@@ -417,7 +430,7 @@ angular.controller('MyCtrl', ['$scope', '$location', function ($scope, $location
                     </div>
                 </section>
 
-                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
+                <!--section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
                     <h3>Built-in directives in detail - 3</h3>
                     <p><strong>ngModel</strong></p>
                     <p><small>
@@ -438,7 +451,7 @@ angular.controller('MyCtrl', ['$scope', '$location', function ($scope, $location
                     </div>
                 </section>
 
-                <!--section>
+                <section>
                     <h3>Built-in directives in detail - 6</h3>
                     <p><strong>ngOptions | ngRepeat</strong></p>
                     <p><small>
@@ -475,6 +488,7 @@ angular.controller('MyCtrl', ['$scope', '$location', function ($scope, $location
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
                     <h3>Build your custom directives</h3>
+                    <p><a href="https://docs.angularjs.org/guide/directive">https://docs.angularjs.org/guide/directive</a></p>
                     <p>
                         One of the most powerful feature in AngularJS is the possibility to make custom directives.
                         Like other Angular components, a custom directive is just a module.
@@ -583,10 +597,8 @@ angular.directive('myClock', ['$interval', 'dateFilter', function ($interval, da
                         <li class="fragment">currency</li>
                         <li class="fragment">date</li>
                         <li class="fragment">json</li>
-                        <li class="fragment">limitTo</li>
                         <li class="fragment">lowercase</li>
                         <li class="fragment">uppercase</li>
-                        <li class="fragment">number</li>
                         <li class="fragment">orderBy</li>
                     </ul>
                     <p class="fragment" style="margin-top: 10px;"><small><em><a href="https://docs.angularjs.org/api/ng/filter">https://docs.angularjs.org/api/ng/filter</a></em></small></p>
@@ -684,6 +696,7 @@ angular.controller('MyCtrl', ['dateFilter', function(dateFilter) {
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
                     <h3>Define your custom filters</h3>
+                    <p><a href="https://docs.angularjs.org/guide/filter">https://docs.angularjs.org/guide/filter</a></p>
                     <p>
                         Writing your own filter is very easy: just register a new filter factory function with your module.
                         This factory function should return a new filter function which takes the input value as the first argument. Any filter arguments are passed in as additional arguments to the filter function.
@@ -779,7 +792,7 @@ angular.controller('MyCtrl', ['$http', function ($http) {
                     <p class="fragment" style="margin-top: 10px;"><small><em><a href="https://docs.angularjs.org/api/ng/service">https://docs.angularjs.org/api/ng/service</a></em></small></p>
                 </section>
 
-                <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
+                <!--section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
                     <h3>Built-in services in detail - 1</h3>
                     <p><strong>$filter</strong></p>
                     <p><small>Retrieves the filter function requested</small></p>
@@ -798,10 +811,10 @@ angular.controller('MyCtrl', ['$filter', '$scope', function ($filter, $scope) {
                         </div>
                         <small>American Date: [[americanDate]]</small>
                     </div>
-                </section>
+                </section-->
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
-                    <h3>Built-in services in detail - 2</h3>
+                    <h3>Built-in services in detail - 1</h3>
                     <p><strong>$http</strong></p>
                     <p><small>The $http service is a core Angular service that facilitates communication with the remote HTTP servers via the browser's XMLHttpRequest object or via JSONP.</small></p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
@@ -851,7 +864,7 @@ angular.run(['$httpBackend', '$http', function ($httpBackend, $http) {
                 </section-->
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
-                    <h3>Built-in services in detail - 3</h3>
+                    <h3>Built-in services in detail - 2</h3>
                     <p><strong>$location</strong></p>
                     <p><small>The $location service parses the URL in the browser address bar (based on the window.location) and makes the URL available to your application. Changes to the URL in the address bar are reflected into $location service and changes to $location are reflected into the browser address bar.</small></p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
@@ -1257,7 +1270,7 @@ angular.module('MyModule', ['ngResource'])
                         <li>resolve: An optional map of dependencies which should be injected into the controller.</li>
                         <li>redirectTo: a string defining the route to redirect</li>
                     </ul>
-                </section-->
+                </section>
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
                     <h3>$routeParams</h3>
@@ -1269,7 +1282,7 @@ angular.controller('MyCtrl', ['$scope', '$routeParams', function ($scope, $route
     $scope.reponame = $routeParams.reponame;
 }]);
                     </code></pre>
-                </section>
+                </section-->
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
                     <h3>Code sample</h3>
@@ -1368,14 +1381,14 @@ angular.module('MyModule', ['ngCookies'])
                     <h3>UI Utils</h3>
                     <p><a href="http://angular-ui.github.io/ui-utils/">http://angular-ui.github.io/ui-utils/</a></p>
                     <p>A utility package with no external dependencies: each module is contained in this package but can be included individually.</p>
-                    <p>Some common modules:</p>
+                    <!--p>Some common modules:</p>
                     <ul>
                         <li class="fragment">Event Binder</li>
                         <li class="fragment">Keypress</li>
                         <li class="fragment">Mask</li>
                         <li class="fragment">Scrollfix</li>
                         <li class="fragment">Show / Hide / Toggle</li>
-                    </ul>
+                    </ul-->
                 </section>
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
@@ -1442,12 +1455,12 @@ angular.module('MyModule', ['ui.grid'])
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
                     <h3>What is it?</h3>
                     <p>Restangular is an AngularJS service that simplifies common GET, POST, DELETE, and UPDATE requests with a minimum of client code. It's a perfect fit for any WebApp that consumes data from a RESTful API.</p>
-                    <p class="fragment">It provides the following features:</p>
+                    <!--p class="fragment">It provides the following features:</p>
                     <ul>
                         <li class="fragment">promises</li>
                         <li class="fragment">all HTTP methods</li>
-                        <li class="fragment">easy way to build custom REST APIs</li>
-                    </ul>
+                        <li class="fragment">easy API set to build custom client-side RESTful APIs</li>
+                    </ul-->
                 </section>
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
@@ -1497,6 +1510,7 @@ angular.module('MyModule', ['restangular'])
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
                     <h3>Components</h3>
+                    <p><a href="http://ionicframework.com/docs/components/">http://ionicframework.com/docs/components/</a></p>
                     <p>Ionic comes with serveral useful components:</p>
                     <ul>
                         <li class="fragment">header and footer bars</li>
@@ -1512,6 +1526,7 @@ angular.module('MyModule', ['restangular'])
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
                     <h3>Features</h3>
+                    <p><a href="http://ionicframework.com/docs/api/">http://ionicframework.com/docs/api/</a></p>
                     <p>CSS components are not the only important thing. Ionic has got lots of Javascript features:</p>
                     <ul>
                         <li class="fragment">action sheet</li>
@@ -1584,11 +1599,14 @@ $ phonegap run ios
                     <ul>
                         <li class="fragment">Open Source</li>
                         <li class="fragment">Highly Modular</li>
-                        <li class="fragment">Top for Single Page Web Application</li>
-                        <li class="fragment">Multi Pattern</li>
-                        <li class="fragment">Lots of Docs</li>
-                        <li class="fragment">Lots of Modules</li>
+                        <li class="fragment">Multi Pattern (MVC, MVVM, MVP: MVW)</li>
+                        <li class="fragment">Template Engine (with custom filters)</li>
+                        <li class="fragment">Extend the HTML (directives)</li>
+                        <li class="fragment">Reuse code (services)</li>
+                        <li class="fragment">Built with testability in mind</li>
                         <li class="fragment">Pure Javascript</li>
+                        <li class="fragment">Tons of modules and documentations</li>
+                        <li class="fragment">Best for single page web application</li>
                     </ul>
                 </section>
             </section>
