@@ -66,7 +66,7 @@
                 </section>
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
-                    <h3>Vincenzo Ferrari <span class="fragment"> >> Wilk</span></h3>
+                    <h3>Vincenzo Ferrari <span class="fragment"> >> <span class="hot-word">Wilk</span></span></h3>
                     <div class="fragment"><img src="images/tcl/not-working.gif"></div>
                     <ul>
                         <li class="fragment">Fullstack Web Developer</li>
@@ -188,7 +188,7 @@
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
                     <h3>Compile Phase</h3>
-                    <p>The compiler (<strong>$compile</strong>) traverses the DOM and collects all of the directives. The result is a linking function</p>
+                    <p>The compiler (<strong class="hot-word">$compile</strong>) traverses the DOM and collects all of the directives. The result is a linking function</p>
                 </section>
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
@@ -253,7 +253,7 @@ angular.module('MyModule', [])
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
                     <h3>What's DI?</h3>
                     <p>
-                        Dependency Injection (DI) is a software design pattern that deals with how components get hold of their dependencies.
+                        Dependency Injection (<span class="hot-word">DI</span>) is a software design pattern that deals with how components get hold of their dependencies.
 
                         The Angular injector subsystem is in charge of creating components, resolving their dependencies, and providing them to other components as requested.
                     </p>
@@ -285,7 +285,7 @@ angular.module('MyModule', [])
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
                     <h3>Code sample</h3>
                     <div class="fragment">
-                        Inline Array Annotation (preferred)
+                        Inline Array Annotation (<span class="hot-word">preferred</span>)
                         <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 angular.controller('MyCtrl', ['$scope', '$location', function ($scope, $location) {
     // do something with $scope and $location services
@@ -323,7 +323,7 @@ angular.controller('MyCtrl', function ($scope, $location) {
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
                     <h3>What is a directive?</h3>
                     <p>
-                        Directives are markers on a DOM element (such as an attribute, element name, comment or CSS class) that tell AngularJS's HTML compiler ($compile) to attach a specified behavior to that DOM element or even transform the DOM element and its children.
+                        Directives are markers on a DOM element that tell AngularJS's HTML compiler to attach a specified behavior to that DOM element or even transform the DOM element and its children.
                     </p>
                 </section>
 
@@ -339,7 +339,7 @@ angular.controller('MyCtrl', function ($scope, $location) {
                         <li>ngView</li>
                     </ul>
                     <p style="margin-top: 10px;"><small><a href="https://docs.angularjs.org/api/ng/directive">https://docs.angularjs.org/api/ng/directive</a></small></p>
-                    <p>Built-in directives are identified by the <strong>ng</strong> namespace.</p>
+                    <p>Built-in directives are identified by the <strong class="hot-word">ng</strong> namespace.</p>
                 </section>
 
                 <!--section>
@@ -384,7 +384,7 @@ angular.controller('MyCtrl', function ($scope, $location) {
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
                     <h3>Built-in directives in detail - 1</h3>
                     <p><strong>ngClick | ngDblclick | ngInit</strong></p>
-                    <p><small>ngClick and ngDblclick attach a listener on click and dblclick event of the element, while ngInit is used to initialize a variable in the current scope.</small></p>
+                    <p><small><span class="hot-word">ngClick</span> and <span class="hot-word">ngDblclick</span> attach a listener on click and dblclick event of the element, while <span class="hot-word">ngInit</span> is used to initialize a variable in the current scope.</small></p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 &lt;button ng-click="aCount = aCount + 1" ng-init="aCount = 10"&gt;Click me&lt;button&gt;
 &lt;button ng-dblclick="count = count + 1" ng-init="count = 0"&gt;Double click me&lt;button&gt;
@@ -403,8 +403,8 @@ angular.controller('MyCtrl', function ($scope, $location) {
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
                     <h3>Built-in directives in detail - 2</h3>
                     <p><strong>ngIf | ngSwitch</strong></p>
-                    <p><small>Some directives change the DOM structure based on a scope expression. ngIf removes or recreates a part of the DOM depending on the evaluation of the expression,
-                    while the ngSwitch conditionally swap the DOM structure.</small></p>
+                    <p><small>Some directives change the DOM structure based on a scope expression. <span class="hot-word">ngIf</span> removes or recreates a part of the DOM depending on the evaluation of the expression,
+                    while the <span class="hot-word">ngSwitch</span> conditionally swap the DOM structure.</small></p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 &lt;input type="number" ng-model="value"/&gt;
 &lt;small ng-if="value >= 0"&gt;Positive&lt;/small&gt;
@@ -559,6 +559,7 @@ function link(scope, iElement, iAttrs, controller, transcludeFn) { ... }
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
                     <h3>Code sample</h3>
+                    <p><strong><span class="hot-word">angular.directive</span></strong> lets you to define a new custom filter:</p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 angular.directive('myClock', ['$interval', 'dateFilter', function ($interval, dateFilter) {
     return {
@@ -626,7 +627,7 @@ angular.directive('myClock', ['$interval', 'dateFilter', function ($interval, da
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
                     <h3>Filters within the application</h3>
-                    <p>Inject a dependency with the name &lt;filterName&gt;Filter to your controller/service/directive:</p>
+                    <p>Inject a dependency with the name <span class="hot-word">&lt;filterName&gt;Filter</span> to your controller/service/directive:</p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 angular.controller('MyCtrl', ['dateFilter', function(dateFilter) {
     var date = dateFilter(new Date(), 'Ymd');
@@ -705,6 +706,7 @@ angular.controller('MyCtrl', ['dateFilter', function(dateFilter) {
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
                     <h3>Code sample</h3>
+                    <p><strong><span class="hot-word">angular.filter</span></strong> lets you to define a new custom filter:</p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 angular.filter('star', ['uppercaseFilter', function (uppercaseFilter) {
     return function (value, starNumber) {
@@ -816,7 +818,7 @@ angular.controller('MyCtrl', ['$filter', '$scope', function ($filter, $scope) {
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
                     <h3>Built-in services in detail - 1</h3>
                     <p><strong>$http</strong></p>
-                    <p><small>The $http service is a core Angular service that facilitates communication with the remote HTTP servers via the browser's XMLHttpRequest object or via JSONP.</small></p>
+                    <p><small>The <span class="hot-word">$http</span> service is a core Angular service that facilitates communication with the remote HTTP servers via the browser's XMLHttpRequest object or via JSONP.</small></p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 angular.controller('MyCtrl', ['$http', '$scope', function ($http, $scope) {
     $scope.getUser = function () {
@@ -866,7 +868,7 @@ angular.run(['$httpBackend', '$http', function ($httpBackend, $http) {
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
                     <h3>Built-in services in detail - 2</h3>
                     <p><strong>$location</strong></p>
-                    <p><small>The $location service parses the URL in the browser address bar (based on the window.location) and makes the URL available to your application. Changes to the URL in the address bar are reflected into $location service and changes to $location are reflected into the browser address bar.</small></p>
+                    <p><small>The <span class="hot-word">$location</span> service parses the URL in the browser address bar (based on the window.location) and makes the URL available to your application. Changes to the URL in the address bar are reflected into $location service and changes to $location are reflected into the browser address bar.</small></p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 angular.controller('MyCtrl', ['$scope', '$location', function ($scope, $location) {
     $scope.url = {};
@@ -889,7 +891,7 @@ angular.controller('MyCtrl', ['$scope', '$location', function ($scope, $location
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
                     <h3>Creating a custom service</h3>
                     <p>
-                        <strong>angular.service</strong> allows to define a new service:
+                        <strong><span class="hot-word">angular.service</span></strong> allows to define a new service:
                     </p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 angular.service('Mario', ['$http', '$log', function ($http, $log) {
@@ -1070,11 +1072,12 @@ angular.controller('FormCtrl', ['$scope', function ($scope) {
             <section>
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
                     <h1>Modularity</h1>
+                    <img src="images/goomba.gif" style="background: transparent; box-shadow: none; border: none;"/>
                 </section>
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
                     <h3>How to build a module</h3>
-                    <p>Angular provides the angular.module function to register a new module.</p>
+                    <p>Angular provides the <span class="hot-word">angular.module</span> function to register a new module.</p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 angular.module('MyModule', []);
                     </code></pre>
@@ -1112,8 +1115,8 @@ angular.module('MyApp', ['MyModule.values'])
                         There are two types of testing in AngularJS:
                     </p>
                     <ul>
-                        <li>End to End Testing</li>
-                        <li>Unit Testing</li>
+                        <li><span class="hot-word">End to End Testing</span></li>
+                        <li><span class="hot-word">Unit Testing</span></li>
                     </ul>
                 </section>
 
@@ -1127,7 +1130,7 @@ angular.module('MyApp', ['MyModule.values'])
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
                     <h3>Jasmine (Unit Test)</h3>
                     <p><a href="http://jasmine.github.io/">http://jasmine.github.io/</a></p>
-                    <p>Jasmine is a testing framework and has several powerful constructors that allow to make assertions and expections on different expression.</p>
+                    <p><span class="hot-word">Jasmine</span> is a testing framework and has several powerful constructors that allow to make assertions and expections on different expression.</p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 var Mario;
 describe('Testing Mario service', function () {
@@ -1151,7 +1154,7 @@ describe('Testing Mario service', function () {
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
                     <h3>Protractor (E2E Test)</h3>
                     <p><a href="https://github.com/angular/protractor">https://github.com/angular/protractor</a></p>
-                    <p>Protractor is an end to end test runner which simulates user interactions that will help you verify the health of your Angular application.</p>
+                    <p><span class="hot-word">Protractor</span> is an end to end test runner which simulates user interactions that will help you verify the health of your Angular application.</p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 describe('Users Table', function () {
     it('should filter the users by name', function () {
@@ -1182,7 +1185,7 @@ describe('Users Table', function () {
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
                     <h3>What is it?</h3>
-                    <p>The ngResource module provides interaction support with RESTful services via the $resource service and $resourceProvider.</p>
+                    <p>The <span class="hot-word">ngResource</span> module provides interaction support with RESTful services via the <span class="hot-word">$resource</span> service and <span class="hot-word">$resourceProvider</span>.</p>
                 </section>
 
                 <!--section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
@@ -1244,7 +1247,7 @@ angular.module('MyModule', ['ngResource'])
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
                     <h3>What is it?</h3>
                     <p>
-                        ngRoute is an Angular module providing features to handle client-side routing with ease.
+                        <span class="hot-word">ngRoute</span> is an Angular module providing features to handle client-side routing with ease.
                         It's mainly composed of:
                     </p>
                     <ul>
@@ -1253,7 +1256,7 @@ angular.module('MyModule', ['ngResource'])
                         <li class="fragment">$route: service</li>
                         <li class="fragment">$routeParams: service</li>
                     </ul>
-                    <p class="fragment" style="margin-top: 25px;">The idea is to use the $routeProvider initially, combined with the ngView directive to load the route template associated and then to use the $route/$routeParams service to get params.</p>
+                    <p class="fragment" style="margin-top: 25px;">The idea is to use the <span class="hot-word">$routeProvider</span> initially, combined with the <span class="hot-word">ngView</span> directive to load the route template associated and then to use the <span class="hot-word">$route</span>/<span class="hot-word">$routeParams</span> service to get params.</p>
                 </section>
 
                 <!--section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
@@ -1321,11 +1324,11 @@ angular.module('MyModule', ['ngRoute'])
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
                     <h3>What is it?</h3>
-                    <p>The ngCookies module provides a convenient wrapper for reading and writing browser cookies.</p>
+                    <p>The <span class="hot-word">ngCookies</span> module provides a convenient wrapper for reading and writing browser cookies.</p>
                     <p>It comes with two services:</p>
                     <ul>
-                        <li>$cookieStore</li>
-                        <li>$cookies</li>
+                        <li><span class="hot-word">$cookieStore</span></li>
+                        <li><span class="hot-word">$cookies</span></li>
                     </ul>
                 </section>
 
@@ -1357,6 +1360,7 @@ angular.module('MyModule', ['ngCookies'])
 
             <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
                 <h1>Libraries</h1>
+                <img src="images/monster.gif" style="background: transparent; box-shadow: none; border: none;"/>
             </section>
 
             <section>
@@ -1367,7 +1371,7 @@ angular.module('MyModule', ['ngCookies'])
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="100% 100%">
                     <h3>Chemical Composition</h3>
-                    <p>Angular-UI is a tool suite that comes with a set of libraries for Angular:</p>
+                    <p>Angular-UI is a <span class="hot-word">suite</span> that comes with a set of libraries for Angular:</p>
                     <ul>
                         <li class="fragment">UI Utils</li>
                         <li class="fragment">UI Modules</li>
@@ -1395,10 +1399,10 @@ angular.module('MyModule', ['ngCookies'])
                     <h3>UI Modules</h3>
                     <p>Standalone AngularUI modules with external dependencies:</p>
                     <ul>
-                        <li class="fragment">ui-ace: Ace IDE module</li>
-                        <li class="fragment">ui-calendar: web calendar view module</li>
-                        <li class="fragment">ui-map: Google Maps module</li>
-                        <li class="fragment">ui-date: module for a date picker</li>
+                        <li class="fragment"><span class="hot-word">ui-ace</span>: Ace IDE module</li>
+                        <li class="fragment"><span class="hot-word">ui-calendar</span>: web calendar view module</li>
+                        <li class="fragment"><span class="hot-word">ui-map</span>: Google Maps module</li>
+                        <li class="fragment"><span class="hot-word">ui-date</span>: module for a date picker</li>
                     </ul>
                 </section>
 
@@ -1406,7 +1410,7 @@ angular.module('MyModule', ['ngCookies'])
                     <h3>UI Bootstrap</h3>
                     <p><a href="http://angular-ui.github.io/bootstrap/">http://angular-ui.github.io/bootstrap/</a></p>
                     <p>
-                        Twitter Bootstrap written natively in AngularJS.
+                        <span class="hot-word">Twitter Bootstrap</span> written natively in AngularJS.
                         This repository contains a set of native AngularJS directives based on Bootstrap's markup and CSS.
                         As a result no dependency on jQuery or Bootstrap's JavaScript is required.
                     </p>
@@ -1417,7 +1421,7 @@ angular.module('MyModule', ['ngCookies'])
                     <p><a href="http://angular-ui.github.io/ng-grid/">http://angular-ui.github.io/ng-grid/</a></p>
                     <p>
                         Grid virtualization written natively in AngularJS and JQuery.
-                        ngGrid comes as an attribute requiring a configuration object:
+                        <span class="hot-word">ngGrid</span> comes as an attribute requiring a configuration object:
                     </p>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 // views/grid.js
@@ -1454,7 +1458,7 @@ angular.module('MyModule', ['ui.grid'])
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="0 100%">
                     <h3>What is it?</h3>
-                    <p>Restangular is an AngularJS service that simplifies common GET, POST, DELETE, and UPDATE requests with a minimum of client code. It's a perfect fit for any WebApp that consumes data from a RESTful API.</p>
+                    <p><span class="hot-word">Restangular</span> is an AngularJS service that simplifies common GET, POST, DELETE, and UPDATE requests with a minimum of client code. It's a perfect fit for any WebApp that consumes data from a RESTful API.</p>
                     <!--p class="fragment">It provides the following features:</p>
                     <ul>
                         <li class="fragment">promises</li>
@@ -1485,6 +1489,7 @@ angular.module('MyModule', ['restangular'])
 
             <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="25% 100%">
                 <h1>Frameworks</h1>
+                <img src="images/star.gif" style="background: transparent; box-shadow: none; border: none;"/>
             </section>
 
             <section>
@@ -1495,16 +1500,16 @@ angular.module('MyModule', ['restangular'])
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
                     <h3>What is it?</h3>
-                    <p>Free and open source, Ionic offers a library of mobile-optimized HTML, CSS and JS components, gestures, and tools for building highly interactive apps. Built with Sass and optimized for AngularJS.</p>
+                    <p>Free and open source, <span class="hot-word">Ionic</span> offers a library of mobile-optimized HTML, CSS and JS components, gestures, and tools for building highly interactive apps. Built with Sass and optimized for AngularJS.</p>
                 </section>
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="50% 100%">
                     <h3>What is it composed of?</h3>
                     <p>It's composed of:</p>
                     <ul>
-                        <li class="fragment">AngularJS: the Javascript part is satisfied by Angular</li>
-                        <li class="fragment">CSS/SASS: a set of CSS/SASS classes that can be overridden by new ones</li>
-                        <li class="fragment">Ionic Client: a tool built with NodeJS that helps you with your project</li>
+                        <li class="fragment"><span class="hot-word">AngularJS</span>: the Javascript part is satisfied by Angular</li>
+                        <li class="fragment"><span class="hot-word">CSS/SASS</span>: a set of CSS/SASS classes that can be overridden by new ones</li>
+                        <li class="fragment"><span class="hot-word">Ionic Client</span>: a tool built with NodeJS that helps you with your project</li>
                     </ul>
                 </section>
 
@@ -1560,7 +1565,7 @@ $ ionic emulate android
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
                     <h3>What is it?</h3>
-                    <p>Mobile Angular UI is a mobile UI framework just like Sencha Touch or jQuery Mobile. If you know Angular JS and Twitter Bootstrap you already know it!</p>
+                    <p><span class="hot-word">Mobile Angular UI</span> is a mobile UI framework just like Sencha Touch or jQuery Mobile. If you know <span class="hot-word">AngularJS</span> and <span class="hot-word">Twitter Bootstrap</span> you already know it!</p>
                 </section>
 
                 <section data-background="images/bg-black.png" data-background-size="auto 25%" data-background-repeat="no-repeat" data-background-position="75% 100%">
